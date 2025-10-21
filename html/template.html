@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Generator" content="KIC">
+    <meta name="Author" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Keywords" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Description" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <title>코리아인스트루먼트(주) 교정관리 시스템</title>
+
+    <link rel="stylesheet" href="../assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../assets/css/datepicker.css">
+    <link rel="stylesheet" href="../assets/css/common.min.css">
+
+
+    <script src="https://kit.fontawesome.com/8f18490998.js" crossorigin="anonymous" ></script>
+    <script src="../assets/js/jquery-3.1.1.min.js"></script>
+    <script src="../assets/js/jquery-ui.min.js"></script>
+    <script src="../assets/js/swiper.min.js"></script>
+    <script src="../assets/js/main.js" defer></script>
+
+
+    <!--[D] 캘린더 js-->
+    <script src="../assets/js/evtCalendar.js" defer></script>
+    
+    
+</head>
+<body>
+    <div id="skip-nav">
+        <a href="#container"></a>
+    </div>
+    
+    <div id="wrap">
+        <!-- header -->
+        <header class="header">
+            <h1 class="logo"><a href=""><img src="../assets/images/common/logo.svg" alt=""></a></h1>
+            <button type="button" class="btn_back" aria-label="뒤로가기"></button>
+            <h2 class="current_page"></h2>
+            <div class="h_util">
+                <div class="h_util_sec h_btns">
+                   <button type="button" class="h_btn ty_qr"></button>
+                    <!--[D] 알림(종) 활성화  'on' class 추가-->
+                    <button type="button" class="h_btn ty_notice on" onclick="f_alert_open();">
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+                </div>
+                <div class="f_alert_box">
+                    <div class="f_alert_top">
+                        <h2 class="tit">알림</h2>
+                        <label class="f_toggle ml10">
+                            <input type="checkbox" class="alert_chk" onchange="f_alert_chk(this)" >
+                            <span class="slider">
+                                <div class="slider_txt false">전체</div>
+                                <div class="slider_txt true">미확인</div>
+                            </span>
+                        </label>
+                        <button type="button" class="f_alert_close ml_auto" onclick="f_alert_close()">
+                            <span class="blind">팝업 닫기</span>
+                        </button>
+                    </div>
+                    <ul class="f_alert_list">
+                        <!--[D] 이미 읽은 상태일 경우 'read' class 추가-->
+                        <li class="f_alert_item ">
+                            <a href="" class="f_alert_link">
+                                <!--[D] 공지알림 아이콘-->
+                                <i><img src="../assets/images/common/ico_alert_notice.svg" alt=""></i>
+                                <div class="txt_box">
+                                    <span class="date">2023년 3월 10일</span>
+                                    <div class="desc">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet cum itaque explicabo sequi ad nihil beatae quidem. Quam, doloribus ad.
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="f_alert_item read">
+                            <a href="" class="f_alert_link">
+                                <!--[D] 교정결과 알림 아이콘-->
+                                <i><img src="../assets/images/common/ico_alert_cal.svg" alt=""></i>
+                                <div class="txt_box">
+                                    <span class="date">2023년 3월 10일</span>
+                                    <div class="desc">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet cum itaque explicabo sequi ad nihil beatae quidem. Quam, doloribus ad.
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="f_alert_item ">
+                            <a href="" class="f_alert_link">
+                                <!--[D] 차기 교정예정일 알림 아이콘-->
+                                <i><img src="../assets/images/common/ico_alert_due.svg" alt=""></i>
+                                <div class="txt_box">
+                                    <span class="date">2023년 3월 10일</span>
+                                    <div class="desc">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet cum itaque explicabo sequi ad nihil beatae quidem. Quam, doloribus ad.
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="f_alert_item ">
+                            <a href="" class="f_alert_link">
+                                <!--[D] 차기 견적요청 승인 알림 아이콘-->
+                                <i><img src="../assets/images/common/ico_alert_estimate.svg" alt=""></i>
+                                <div class="txt_box">
+                                    <span class="date">2023년 3월 10일</span>
+                                    <div class="desc">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet cum itaque explicabo sequi ad nihil beatae quidem. Quam, doloribus ad.
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="f_alert_item read">
+                            <a href="" class="f_alert_link">
+                                <!--[D] 공지알림 아이콘-->
+                                <i><img src="../assets/images/common/ico_alert_notice.svg" alt=""></i>
+                                <div class="txt_box">
+                                    <span class="date">2023년 3월 10일</span>
+                                    <div class="desc">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet cum itaque explicabo sequi ad nihil beatae quidem. Quam, doloribus ad.
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="f_alert_item">
+                            <a href="" class="f_alert_link">
+                                <!--[D] 차기 견적요청 승인 알림 아이콘-->
+                                <i><img src="../assets/images/common/ico_alert_estimate.svg" alt=""></i>
+                                <div class="txt_box">
+                                    <span class="date">2023년 3월 10일</span>
+                                    <div class="desc">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet cum itaque explicabo sequi ad nihil beatae quidem. Quam, doloribus ad.
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="f_alert_item read">
+                            <a href="" class="f_alert_link">
+                                <!--[D] 차기 견적요청 승인 알림 아이콘-->
+                                <i><img src="../assets/images/common/ico_alert_estimate.svg" alt=""></i>
+                                <div class="txt_box">
+                                    <span class="date">2023년 3월 10일</span>
+                                    <div class="desc">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet cum itaque explicabo sequi ad nihil beatae quidem. Quam, doloribus ad.
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!--// header -->
+        <!-- nav -->
+        <aside class="sidenav">
+            <div class="sidenav_top">
+                <!--[D] 썸네일 X -->
+                <div class="thumb_user"></div>
+                <!--[D] 썸네일 O -->
+                <div class="thumb_user has_thumb">
+                    <img src="../assets/images/common/pepper2.jpg" alt="">
+                </div>
+                <div>
+                    <div class="user_name"><b>김영술</b>님 안녕하세요.</div>
+                    <div class="co_name">코리아인스트루먼트(주) 서울본사</div>
+                    <!--[D] 회사정보 미등록시 -->
+                    <div class="co_name"><a href="" class="btn_t_link">회사정보 등록하기 &gt;</a></div>
+                    <!--// [D] 회사정보 미등록시 -->
+                </div>
+                <button type="button" class="btn_nav_close" aria-label="close navigation"></button>
+            </div>
+            <ul class="nav">
+                <li class="nav_item">
+                    <button type="button" class="btn_dep1"><i class="ico_dep1 ty_menu1"></i>견적 관리</button>
+                    <div class="nav_dep2_box">
+                        <ul class="nav_dep2">
+                            <li><a href="" class="btn_dep2">견적 요청</a></li>
+                            <li><a href="" class="btn_dep2">견적 확인</a></li>
+                            <li><a href="" class="btn_dep2">교정 수수료 조회</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav_item">
+                    <button type="button" class="btn_dep1 "><i class="ico_dep1 ty_menu2"></i>접수 관리</button>
+                    <div class="nav_dep2_box">
+                        <ul class="nav_dep2">
+                            <li><a href="" class="btn_dep2">예약 접수</a></li>
+                            <li><a href="" class="btn_dep2">예약 접수 목록</a></li>
+                            <li><a href="" class="btn_dep2">접수 확인</a></li>
+                        </ul>
+                    </div>                   
+                </li>
+                <li class="nav_item">
+                    <button type="button" class="btn_dep1"><i class="ico_dep1 ty_menu3"></i>교정 관리</button>
+                    <div class="nav_dep2_box">
+                        <ul class="nav_dep2">
+                            <li><a href="" class="btn_dep2">교정 진행 현황</a></li>
+                            <li><a href="" class="btn_dep2">교정 이력 조회</a></li>
+                            <li><a href="" class="btn_dep2">불량 이력 조회</a></li>
+                            <li><a href="" class="btn_dep2">수리 이력 조회</a></li>
+                            <li><a href="" class="btn_dep2">우리 장비 목록</a></li>
+                        </ul>
+                    </div>                   
+                </li>
+                <li class="nav_item">
+                    <button type="button" class="btn_dep1"><i class="ico_dep1 ty_menu4"></i>정산/출고 관리</button>
+                    <div class="nav_dep2_box">
+                        <ul class="nav_dep2">
+                            <li><a href="" class="btn_dep2">정산 관리</a></li>
+                            <li><a href="" class="btn_dep2">출고 관리</a></li>
+                        </ul>
+                    </div>                   
+                </li>
+                <li class="nav_item">
+                    <button type="button" class="btn_dep1"><i class="ico_dep1 ty_menu5"></i>고객 지원</button>
+                    <div class="nav_dep2_box">
+                        <ul class="nav_dep2">
+                            <li><a href="" class="btn_dep2">공지사항</a></li>
+                            <li><a href="" class="btn_dep2">자료실</a></li>
+                            <li><a href="" class="btn_dep2">자주하는 질문</a></li>
+                        </ul>
+                    </div>                   
+                </li>
+                <li class="nav_item">
+                    <button type="button" class="btn_dep1"><i class="ico_dep1 ty_menu6"></i>마이페이지</button>
+                    <div class="nav_dep2_box">
+                        <ul class="nav_dep2">
+                            <li><a href="" class="btn_dep2">내 정보</a></li>
+                            <li><a href="" class="btn_dep2">내 문의 관리</a></li>
+                            <li><a href="" class="btn_dep2">성적서 업체 관리</a></li>
+                            <li><a href="" class="btn_dep2">포인트 관리</a></li>
+                        </ul>
+                    </div>                   
+                </li>
+            </ul>
+            <div class="sidenav_bot">
+                <button type="button" class="f_btn ty_small _midGrey pd10">알림설정 <i class="fa-solid fa-gear"></i></button>
+                <button type="button" class="f_btn ty_small _midGrey pd10">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </aside>
+        <!-- // nav -->
+        <!--container-->
+        <main id="container" class="container">
+            <div id="contents" class="contents">
+                
+                <div class="evtcal-wrap">
+                    <div class="evtcal-head">
+                        <div class="evtcal-title" id="calTitle"></div>
+                        <div class="evtcal-nav">
+                            <button id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+                            <button id="todayBtn">오늘</button>
+                            <button id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                        
+                    </div>
+
+                    <div class="evtcal-week">
+                        <div>일</div>
+                        <div>월</div>
+                        <div>화</div>
+                        <div>수</div>
+                        <div>목</div>
+                        <div>금</div>
+                        <div>토</div>
+                    </div>
+                    <div class="evtcal-grid" id="calGrid"></div>
+
+                    <div class="evtcal-panel">
+                        <h3 id="panelTitle">이벤트</h3>
+                        <div id="live" class="evtcal-sr" aria-live="polite"></div>
+                        <div id="eventContainer"></div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </main>
+        <!--//container-->
+    </div>
+    <!-- 초기화 코드 -->
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            const root = document.querySelector('.evtcal-wrap');
+
+            // [DEV] 샘플 데이터 
+            const initEvents = {
+                "2025-10-21":[
+                    {id:1, time:"10:00", title:"MD 회의", tag:"출장"},
+                    {id:2, time:"13:30", title:"파트너 통화", tag:"교육"},
+                    {id:3, time:"17:00", title:"QA 체크"}
+                ],
+                "2025-10-27":[
+                    {id:4, time:"11:00", title:"디자인 리뷰", tag:"반차"},
+                    {id:5, time:"15:00", title:"배포 리허설", tag:"배포"}
+                ],
+                "2025-11-27":[
+                    {id:6, time:"11:00", title:"디자인 리뷰", tag:"츌정"},
+                    {id:7, time:"15:00", title:"배포 리허설", tag:"반차"}
+                ]
+            };
+
+            new EvtCalendar(root, {
+                initialEvents: initEvents,
+                autoSelectOnInit: false,
+                autoSelectOnMonthChange: false,
+
+                // ✅ [DEV] 월별 일정 api 호출
+                onMonthChange: async (year, month0) => {
+                   console.log(year,month0 + 1)
+                },
+                // ✅ [DEV] 상세 이동은 여기서 처리 
+                onEventClick: (ev) => {
+                    console.log(ev)
+                },
+            });
+        });
+    </script>
+</body>
+</html>

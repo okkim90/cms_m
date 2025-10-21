@@ -1,0 +1,42 @@
+.login {
+    &_wrap {
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column; 
+        padding: 30px 20px;
+        background-color: #fff;
+    }
+    &_intro {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-bottom: 30px;
+        .logo {
+            img {
+                width: 100%;
+            }
+        }
+    }
+    &_form {
+        display: flex;
+        flex-direction: column;
+        
+        background-color: rgba(#fff,.2);
+        border-radius: 30px;
+        width: 100%;
+        row-gap: 8px;
+        .f_input.ty_big {
+            height: 56px;
+            padding: 0 20px;
+            &[type="password"] {
+                padding-right: 50px;
+                background-image: url(../images/common/ico_pw.svg);
+                background-repeat: no-repeat;
+                background-position: calc(100% - 20px) center;
+            }
+        }
+    }
+}

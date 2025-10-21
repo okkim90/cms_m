@@ -1,0 +1,194 @@
+// ============================
+// EVENT CALENDAR (prefix: evtcal-)
+// ============================
+
+$evtcal-color-primary: #0085FF;
+$evtcal-color-dot: #FF5C5C;
+$evtcal-color-border: #ddd;
+$evtcal-color-bg-light: #f8f8f8;
+$evtcal-radius: 10px;
+$evtcal-gap: 4px;
+
+.evtcal-wrap {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  //padding: 12px;
+
+  .evtcal-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+
+    .evtcal-title {
+      flex: 1;
+      text-align: center;
+      font-weight: 700;
+      font-size: clamp(16px, 3.5vw, 20px);
+    }
+
+    .evtcal-nav {
+      display: flex;
+      gap: 6px;
+
+      button {
+        padding: 0 10px;
+        height: 33px;
+        min-width: 33px;
+        border: 1px solid #ddd;
+        background: #fff;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .evtcal-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: $evtcal-gap;
+    margin-bottom: $evtcal-gap;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+  }
+
+  .evtcal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: $evtcal-gap;
+  }
+
+  .evtcal-day {
+    aspect-ratio: 1 / 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $evtcal-color-border;
+    border-radius: $evtcal-radius;
+    background: #fff;
+    font-size: clamp(12px, 3vw, 16px);
+    font-weight: 500;
+    overflow: hidden;
+    transition: background 0.2s, border-color 0.2s;
+
+    &.muted {
+      color: #bbb;
+      background: $evtcal-color-bg-light;
+      .evtcal-badge {
+        opacity: 0.6;
+      }
+    }
+
+    &.today {
+      outline: 2px solid $evtcal-color-primary;
+    }
+
+    &.selected {
+      background: lighten($evtcal-color-primary, 45%);
+      border-color: lighten($evtcal-color-primary, 30%);
+    }
+
+    // &.has-event::after {
+    //   content: "";
+    //   position: absolute;
+    //   left: 50%;
+    //   bottom: 6px;
+    //   transform: translateX(-50%);
+    //   width: 6px;
+    //   height: 6px;
+    //   border-radius: 50%;
+    //   background: $evtcal-color-dot;
+    //   pointer-events: none;
+    // }
+
+    .evtcal-badge {
+      position: absolute;
+      right: 1px;
+      top: 1px;
+      min-width: 16px;
+      height: 16px;
+      text-align: center;
+      border-radius: 9999px;
+      background: $evtcal-color-primary;
+      color: #fff;
+      font-size: 10px;
+      line-height: 16px;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid #000;
+    }
+  }
+
+  // =======================
+  // Event List Panel
+  // =======================
+  .evtcal-panel {
+    margin-top: 16px;
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .evtcal-empty {
+      padding: 12px;
+      border: 1px dashed #ccc;
+      border-radius: $evtcal-radius;
+      color: #777;
+      background: $evtcal-color-bg-light;
+      text-align: center;
+    }
+
+    .evtcal-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .evtcal-item {
+        border: 1px solid $evtcal-color-border;
+        border-radius: $evtcal-radius;
+        padding: 10px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .evtcal-time {
+          font-weight: 700;
+          min-width: 54px;
+          text-align: center;
+        }
+
+        .evtcal-title {
+          flex: 1;
+        }
+
+        .evtcal-tag {
+          background: lighten($evtcal-color-primary, 45%);
+          border: 1px solid lighten($evtcal-color-primary, 25%);
+          color: $evtcal-color-primary;
+          padding: 2px 8px;
+          border-radius: 9999px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  // =======================
+  // Accessibility helpers
+  // =======================
+  .evtcal-sr {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+}
