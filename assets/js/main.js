@@ -184,6 +184,30 @@ function set_1y(target){
 
 
 
+function syncEndMin(startInput) {
+  const set = startInput.closest('.date_set');
+  const end = set && set.querySelector('input._end[type="date"]');
+  if (end) {
+    end.min = startInput.value || '';
+    // 시작일이 종료일보다 늦으면 종료일 맞춰줌
+    if (startInput.value && end.value && startInput.value > end.value) {
+      end.value = startInput.value;
+    }
+  }
+}
+
+function syncStartMax(endInput) {
+  const set = endInput.closest('.date_set');
+  const start = set && set.querySelector('input._start[type="date"]');
+  if (start) {
+    start.max = endInput.value || '';
+    // 종료일이 시작일보다 빠르면 시작일 맞춰줌
+    if (start.value && endInput.value && start.value > endInput.value) {
+      start.value = endInput.value;
+    }
+  }
+}
+
 
 
 function open_file(target){

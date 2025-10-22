@@ -176,7 +176,7 @@
             margin-left: 4px;
         }
     }
-    .inp_date {
+    input[type="date"] {
         max-width: 110px;
         //width: 100%;
         flex: 1;
@@ -493,6 +493,10 @@
     i {
         font-size: 50px;
         color: #bebebe;
+    }
+    .img_box {
+        flex-shrink: 0;
+        width: 100px;
     }
     &.ty_bd {
         border: 1px solid $c_line;
@@ -1649,7 +1653,7 @@
         }
         .btn_submit {
             width: 42px;
-            height: 36px;
+            height: 40px;
             border-radius: 0 50% 50% 0;
             position: absolute;
             right: 0;
@@ -1666,8 +1670,8 @@
     }
     &_detail {
         &_btn {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-color: $c_key;
             // &::before {
@@ -2004,10 +2008,11 @@
                 display: block;
             }
             .btn_cal_detail {
-                border-radius: 6px 6px 0 0;
+                //border-radius: 6px 6px 0 0;
                 // background-color: $c_lightGrey;
                 // color: #fff;
-                border-bottom: 1px solid $c_line;
+                //border-bottom: 1px solid $c_line;
+                 background-color: rgba($c_key, .1);
                 &::after {
                     transform: rotate(-135deg);
                     margin-top: 4px;
@@ -2017,29 +2022,38 @@
         }
     }
     
-    padding: 15px 10px;
-    border-radius: 6px;
-    background-color: $c_bg_grey2;
+    //padding: 15px 10px;
+    //border-radius: 6px;
+    //background-color: $c_bg_grey2;
     &.on {
         display: block;
     }
     &_list {
         .list_item {
             & + .list_item {
-                margin-top: 8px;
+                margin-top: 10px;
             }
         }
         .list_link {
-            padding: 6px 10px;
-            background-color: $c_bg_grey2;
+            display: block;
+            padding: 10px 10px;
             border-radius: 6px;  
-            background-color: #fff;
+            background-color: rgba($c_key, .07);
+            border: 1px solid rgba($c_key, .1);
+            &_sec {
+                & + .list_link_sec {
+                    margin-top: 8px;
+                }
+            }
             .num {
                 font-weight: bold;
             }
-            .f_tag {
-                background-color: #fff;
-            }    
+            ._tags {
+                .f_tag {
+                    background-color: #fff;
+                }    
+            }
+            
             flex-wrap: wrap;
             .prod_info {
                 width: 100%;

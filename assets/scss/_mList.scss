@@ -17,6 +17,10 @@
         border-radius: 6px;
         border: 1px solid $c_line;
         background-color: #fff;
+        &:has(.cal_detail_wrap.on) {
+            border-color: $c_blue;
+            outline: 1px solid $c_blue;
+        }
     }
     &_sec {
         & + & {

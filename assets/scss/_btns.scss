@@ -424,9 +424,7 @@
     line-height: 20px;
     border: 1px solid transparent;
     font-weight: 500;
-    &.pd10 {
-        padding: 0 10px;
-    }
+    
     &.ty_small {
         min-width: 30px;
         padding: 0 0.5em;
@@ -435,12 +433,23 @@
         line-height: 16px;
         border-radius: 0.3em;
     }
+    &.ty_small2 {
+        min-width: 30px;
+        padding: 0 0.5em;
+        font-size: 11px;
+        height: 20px;
+        line-height: 17px;
+        border-radius: 0.3em;
+    }
     &.ty_big {
         padding: 0 1em;
         font-size: 14px;
         height: 26px;
         line-height: 24px;
         border-radius: 0.3em;
+    }
+    &.pd10 {
+        padding: 0 10px;
     }
 }
 

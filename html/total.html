@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Generator" content="KIC">
+    <meta name="Author" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Keywords" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Description" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <title>코리아인스트루먼트(주) 교정관리 시스템</title>
+    <script src="https://kit.fontawesome.com/8f18490998.js" crossorigin="anonymous" ></script>
+    <script src="../assets/js/main.js" defer></script>
+
+    <link rel="stylesheet" href="../assets/css/common.min.css">
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="skip-nav">
+        <a href="#container"></a>
+    </div>
+    <div id="wrap">
+        <!-- header -->
+        <header class="header">
+            <h1 class="header_tit">전체 조회</h1>
+            <button type="button" class="btn_back" aria-label="뒤로가기"></button>
+        </header>
+        <!--// header -->
+        <!-- sidenav -->
+        <aside class="sidenav">
+            <div class="sidenav_top">
+                <div>
+                    <div class="user_name"><b>김영술</b> (okkim)</div>
+                    <div class="co_name">코리아인스트루먼트 서울본사 (IT 서비스개발실)</div>
+                </div>
+                <button type="button" class="btn_nav_close" aria-label="close navigation"></button>
+            </div>
+            <ul class="nav">
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu1"></i>전체 조회</a>
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1 "><i class="ico_dep1 ty_menu2"></i>업체 조회</a>              
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu3"></i>견적 조회</a>          
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu4"></i>일정 조회</a>               
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu5"></i>교정 수수료</a>                
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu6"></i>예약번호</a>               
+                </li>
+            </ul>
+            <div class="sidenav_bot">
+                <button type="button" class="f_btn ty_s_mid _midGrey w_100">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </aside>
+        <!--// sidenav -->
+        <!--container-->
+        <main id="container" class="container">
+            <div id="contents" class="contents">
+                <section class="sec mt0">
+                    <div class="srch_wrap">
+                        <form class="srch_form">
+                            <input type="text" class="f_input ty_mid ty_round" placeholder="교정번호를 입력해 주세요.">
+                            <button type="submit" class="btn_submit" aria-label="검색하기"></button>
+                        </form>
+                        <button class="srch_detail_btn" aria-label="상세검색" onclick="open_srch(this)"></button>
+                        <div class="srch_detail_wrap">
+                            <form class="srch_detail_inner">
+                                <div class="srch_detail_top">
+                                    <h3 class="tit2">상세검색</h3>
+                                    <button type="button" class="srch_detail_close" onclick="close_srch(this)" aria-label="상세검색 닫기"></button>
+                                </div>
+                                <div class="srch_detail_cont">
+                                    <div class="srch_detail_sec">
+                                        <label for="" class="tit">기간 조회 (접수일)</label>
+                                        <div class="date_set"> 
+                                            <input type="date" class="f_input ty_mid _start" onchange="syncEndMin(this)">
+                                            ~
+                                            <input type="date" class="f_input ty_mid _end" onchange="syncStartMax(this)">
+                                        </div>
+                                    </div>
+                                    <div class="srch_detail_sec">
+                                        <label for="" class="tit">접수 번호</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="접수번호를 입력해주세요.">
+                                    </div>
+                                    <div class="srch_detail_sec">
+                                        <label for="" class="tit">신청 업체명</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="신청 업체명을 입력해주세요.">
+                                    </div>
+                                    <div class="srch_detail_sec">
+                                        <label for="" class="tit">성적서 업체명</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="성적서 업체명을 입력해주세요.">
+                                    </div>
+                                    <div class="srch_detail_sec">
+                                        <label for="" class="tit">계측기명</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="계측기명을 입력해주세요.">
+                                    </div>
+                                    <div class="srch_detail_sec">
+                                        <label for="" class="tit">형식</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="형식을 입력해주세요.">
+                                    </div>
+                                    <div class="srch_detail_sec">
+                                        <label for="" class="tit">기기번호</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="기기번호를 입력해주세요.">
+                                    </div>
+                                </div>
+                                <div class="srch_detail_bot">
+                                    <button type="button" class="f_btn ty_mid _solidGrey w_100" onclick="reset(this)">초기화 <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i></button>
+                                    <input type="submit" value="검색" class="f_btn ty_mid _key w_100">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                <section class="sec mt20">
+                    <div class="no_result_box ty_bg ty_small">
+                        <div class="no_result_box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <p class="mt10 fc_grey">검색조건을 입력해주세요.</p> 
+                        </div>
+                    </div>
+                    <div class="no_result_box ty_bg ty_small">
+                        <div class="no_result_box">
+                            <i class="fa-solid fa-hexagon-exclamation"></i>
+                            <p class="mt10 fc_grey">검색결과가 없습니다.</p> 
+                        </div>
+                    </div>
+                    <ul class="mList">
+                        <li class="mList_item">
+                            <div class="mList_inner">
+                                <div class="mList_sec mList_top _gapX4 fw_w">
+                                    <span class="num fwB ">202400012</span>
+                                    <span class="date ml_auto">2024-03-24</span>
+                                    
+                                </div>
+                                <div class="mList_sec">
+                                    <strong class="mr4">그랜드졍션</strong> 
+                                    <span class="fc_solidGrey">[네이버 주식회사]</span> 
+                                </div>
+                                <div class="mList_sec cal_data" data-total="6278" data-finished="3473">
+                                    <!--
+                                        [D] data 확인 
+                                        data-total : 전체 계측기수
+                                        data-finished : 완료 갯수 
+                                    -->
+                                    
+                                    <div class="d_flex cal_progress_wrap _gap10 ai_c h_30" > 
+                                        <strong class="shrink0">교정현황</strong>
+                                        <div class="cal_progress flex1">
+                                            <span class="cal_progress_bar cal_progress_current"></span>
+                                        </div>
+                                        <div class="cal_output fwM"></div>
+                                    </div>
+                                    <div class="cal_detail_wrap mt5"> <!--[D] .cal_detail_wrap 'on' class 로 버튼,리스트 활성화 -->
+                                        <div class="taC">
+                                            <button type="button" class="btn_cal_detail" onclick="toggleDetail(this)">상세 현황</button>
+                                        </div>
+                                        <div class="cal_detail">
+                                            <ul class="cal_detail_list mt10">
+                                                <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <!--[D] 활성화 : _blue_ol , 비활성화 : _grey_ol -->
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span> 
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mList_item">
+                            <div class="mList_inner">
+                                <div class="mList_sec mList_top _gapX4 fw_w">
+                                    <span class="num fwB ">202400012</span>
+                                    <span class="date ml_auto">2024-03-24</span>
+                                    
+                                </div>
+                                <div class="mList_sec">
+                                    <strong class="mr4">그랜드졍션</strong> 
+                                    <span class="fc_solidGrey">[네이버 주식회사]</span> 
+                                </div>
+                                <div class="mList_sec cal_data" data-total="1678" data-finished="373">
+                                    <!--
+                                        [D] data 확인 
+                                        data-total : 전체 계측기수
+                                        data-finished : 완료 갯수 
+                                    -->
+                                    
+                                    <div class="d_flex cal_progress_wrap _gap10 ai_c h_30" > 
+                                        <strong class="shrink0">교정현황</strong>
+                                        <div class="cal_progress flex1">
+                                            <span class="cal_progress_bar cal_progress_current"></span>
+                                        </div>
+                                        <div class="cal_output fwM"></div>
+                                    </div>
+                                    <div class="cal_detail_wrap mt5"> <!--[D] .cal_detail_wrap 'on' class 로 버튼,리스트 활성화 -->
+                                        <div class="taC">
+                                            <button type="button" class="btn_cal_detail" onclick="toggleDetail(this)">상세 현황</button>
+                                        </div>
+                                        <div class="cal_detail">
+                                            <ul class="cal_detail_list mt10">
+                                                <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <!--[D] 활성화 : _blue_ol , 비활성화 : _grey_ol -->
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span> 
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mList_item">
+                            <div class="mList_inner">
+                                <div class="mList_sec mList_top _gapX4 fw_w">
+                                    <span class="num fwB ">202400012</span>
+                                    <span class="date ml_auto">2024-03-24</span>
+                                    
+                                </div>
+                                <div class="mList_sec">
+                                    <strong class="mr4">그랜드졍션</strong> 
+                                    <span class="fc_solidGrey">[네이버 주식회사]</span> 
+                                </div>
+                                <div class="mList_sec cal_data" data-total="8" data-finished="3">
+                                    <!--
+                                        [D] data 확인 
+                                        data-total : 전체 계측기수
+                                        data-finished : 완료 갯수 
+                                    -->
+                                    
+                                    <div class="d_flex cal_progress_wrap _gap10 ai_c h_30" > 
+                                        <strong class="shrink0">교정현황</strong>
+                                        <div class="cal_progress flex1">
+                                            <span class="cal_progress_bar cal_progress_current"></span>
+                                        </div>
+                                        <div class="cal_output fwM"></div>
+                                    </div>
+                                    <div class="cal_detail_wrap mt5"> <!--[D] .cal_detail_wrap 'on' class 로 버튼,리스트 활성화 -->
+                                        <div class="taC">
+                                            <button type="button" class="btn_cal_detail" onclick="toggleDetail(this)">상세 현황</button>
+                                        </div>
+                                        <div class="cal_detail">
+                                            <ul class="cal_detail_list mt10">
+                                                <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <!--[D] 활성화 : _blue_ol , 비활성화 : _grey_ol -->
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span> 
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mList_item">
+                            <div class="mList_inner">
+                                <div class="mList_sec mList_top _gapX4 fw_w">
+                                    <span class="num fwB ">202400012</span>
+                                    <span class="date ml_auto">2024-03-24</span>
+                                    
+                                </div>
+                                <div class="mList_sec">
+                                    <strong class="mr4">그랜드졍션</strong> 
+                                    <span class="fc_solidGrey">[네이버 주식회사]</span> 
+                                </div>
+                                <div class="mList_sec cal_data" data-total="78" data-finished="78">
+                                    <!--
+                                        [D] data 확인 
+                                        data-total : 전체 계측기수
+                                        data-finished : 완료 갯수 
+                                    -->
+                                    
+                                    <div class="d_flex cal_progress_wrap _gap10 ai_c h_30" > 
+                                        <strong class="shrink0">교정현황</strong>
+                                        <div class="cal_progress flex1">
+                                            <span class="cal_progress_bar cal_progress_current"></span>
+                                        </div>
+                                        <div class="cal_output fwM"></div>
+                                    </div>
+                                    <div class="cal_detail_wrap mt5"> <!--[D] .cal_detail_wrap 'on' class 로 버튼,리스트 활성화 -->
+                                        <div class="taC">
+                                            <button type="button" class="btn_cal_detail" onclick="toggleDetail(this)">상세 현황</button>
+                                        </div>
+                                        <div class="cal_detail">
+                                            <ul class="cal_detail_list mt10">
+                                                <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <!--[D] 활성화 : _blue_ol , 비활성화 : _grey_ol -->
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span> 
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                 <li class="list_item">
+                                                    <a href="" class="list_link">
+                                                        <div class="list_link_sec d_flex _gap4 ai_b">
+                                                            <span>202400012-1</span>
+                                                            <span>[구분 | 사내 | 국/영]</span>
+                                                            <span class="f_tag ty_small2 _blue ml_auto pd10">진행상태</span> 
+                                                        </div>
+                                                        <div class="list_link_sec">
+                                                            <span class="mList_prod_item prod_co">[TESLA]</span>
+                                                            <span class="mList_prod_item prod_name fwM">DIGITAL LOW RESISTANCE OHMMETER</span>
+                                                            <div class="mList_prod_item prod_desc">
+                                                                <span class="prod_desc_item">S5350XL284 1005</span>
+                                                                <span class="prod_desc_item prod_num fwM">qwfsad1234123</span>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="list_link_sec _tags d_flex jc_fe _gap6">
+                                                            <span class="f_tag ty_small2 _blue_ol">교정결과</span>
+                                                            <span class="f_tag ty_small2 _blue_ol">명세서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">계산서</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">수납</span>
+                                                            <span class="f_tag ty_small2 _grey_ol">출고</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <script>
+                        const cal_data = document.querySelectorAll('.cal_data');
+                        cal_data.forEach(e=>{
+                            let val_total = parseInt(e.dataset.total);
+                            let val_finished = parseInt(e.dataset.finished);
+                            
+                            let cal_output = e.querySelector('.cal_output');
+                            let cal_progress_finished = e.querySelector('.cal_progress_current');
+                           
+
+                            cal_progress_finished.style.width = (100 * val_finished) / val_total + '%';
+                            cal_output.textContent = val_finished+' / '+val_total;
+                        });
+
+                        function toggleDetail(target){
+                            let cal_detail_wrap = target.closest('.cal_detail_wrap');
+                            
+                            if(cal_detail_wrap.classList.contains('on')){
+                                cal_detail_wrap.classList.remove('on');
+                            }else{
+                                cal_detail_wrap.classList.add('on');
+                            }
+                            
+                        }
+
+                    </script>
+                </section>
+            </div>
+        </main>
+        <!--//container-->
+        <!-- sticky_bot -->
+        <div class="sticky_bot">
+            <button type="button" aria-label="상단으로 이동" onclick="window.scrollTo(0,0)" class="btn_gotop"></button>
+            <ul class="botNav">
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico1"></span>
+                        <span class="tit">전체조회</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico2"></span>
+                        <span class="tit">업체</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico_home"></span>
+                        <span class="tit">홈</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico3"></span>
+                        <span class="tit">일정</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <button type="button" class="botNav_btn btn_nav_toggle">
+                        <span class="ico_box ico4"></span>
+                        <span class="tit">메뉴</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!-- sticky_bot -->
+       
+    </div>
+</body>
+</html>

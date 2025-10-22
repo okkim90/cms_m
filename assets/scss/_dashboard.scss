@@ -1,12 +1,13 @@
 .dashboard {
     &_sec {
-        margin-top: 26px;
+        margin-top: 30px;
         &_top {
             .tit {
                 font-size: 20px;
                 font-weight: 500;
+                line-height: 1.4;
             }
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
     }
     &_user {
@@ -45,5 +46,63 @@
                 margin-right: 6px;
             }
         }
+    }
+}
+
+.schedule {
+    &_item {
+        & + & {
+            margin-top: 10px;
+        }
+        &_ico {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 500;
+            font-size: 14px;
+            border-radius: 50%;
+            margin-right: 10px;
+            &._business {
+                background-color: #FF5C5C;
+            }
+            &._day_off {
+                background-color: #FF7A00;
+            }
+            &._half_off_am {
+                background-color: #41908D;
+            }
+            &._half_off_pm {
+                background-color: #0084FF;
+            }
+            &._training {
+                background-color: #7636FF;
+            }
+            &._else {
+                background-color: #7636FF;
+            }
+        }
+        &_txt {
+            min-width: 0;
+        }
+        &_tit {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        &_desc {
+            color: $c_blue;
+        }
+    }
+    &_link {
+        display: flex;
+        align-items: center;
+        border: 1px solid $c_line;
+        border-radius: 8px;
+        padding: 8px;
+
     }
 }
