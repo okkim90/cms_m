@@ -68,8 +68,13 @@
                 <section class="sec mt0">
                     <div class="srch_wrap">
                         <form class="srch_form">
-                            <input type="text" class="f_input ty_mid ty_round" placeholder="교정번호를 입력해 주세요.">
-                            <button type="submit" class="btn_submit" aria-label="검색하기"></button>
+                            <div class="field">
+                                <input id="q" type="text" class="f_input ty_mid ty_round"
+                                    placeholder="업체명을 입력해주세요." aria-label="업체명 검색어 입력">
+                                <button type="button" class="btn_clear" aria-label="입력 내용 지우기"
+                                        onclick="clearField(this)"><i class="fa-solid fa-xmark"></i></button>
+                                <button type="submit" class="btn_submit" aria-label="검색하기"></button>
+                            </div>
                         </form>
                         <button class="srch_detail_btn" aria-label="상세검색" onclick="open_srch(this)"></button>
                         <div class="srch_detail_wrap">
@@ -121,6 +126,7 @@
                     </div>
                 </section>
                 <section class="sec mt20">
+                    
                     <div class="no_result_box ty_bg ty_small">
                         <div class="no_result_box">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -132,6 +138,9 @@
                             <i class="fa-solid fa-hexagon-exclamation"></i>
                             <p class="mt10 fc_grey">검색결과가 없습니다.</p> 
                         </div>
+                    </div>
+                    <div class="d_flex ai_b mb10">
+                        <h2 class="tit4"><b>검색 결과 :</b> 166건</h2>
                     </div>
                     <ul class="mList">
                         <li class="mList_item">
@@ -701,6 +710,20 @@
                         }
 
                     </script>
+
+                    <div class="paging_wrap mt20">
+                        <a href="" class="paging_btn paging_nav ty_first"><span class="blind">처음</span></a>
+                        <a href="" class="paging_btn paging_nav ty_prev"><span class="blind">이전</span></a>
+                        <ul class="paging_list">
+                            <li><span class="paging_btn current">1</span></li>
+                            <li><a href="" class="paging_btn">2</a></li>
+                            <li><a href="" class="paging_btn">3</a></li>
+                            <li><a href="" class="paging_btn">4</a></li>
+                            <li><a href="" class="paging_btn">5</a></li>
+                        </ul>
+                        <a href="" class="paging_btn paging_nav ty_next"><span class="blind">다음</span></a>
+                        <a href="" class="paging_btn paging_nav ty_last"><span class="blind">마지막</span></a>
+                    </div>
                 </section>
             </div>
         </main>

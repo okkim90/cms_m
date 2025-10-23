@@ -391,28 +391,32 @@ $inner: 1280px;
     &.jc_fe {
         justify-content: flex-end;
     }
-    .flex1 {
-        flex: 1;
-    }
-    .shrink0 {
-        flex-shrink: 0;
-    }
-    .self_top {
-        align-self: flex-start;
-    }
-    .self_c {
-        align-self: center;
-    }
-    .self_bot {
-        align-self: flex-end;
-    }
+    
     &.ty_col {
         flex-direction: column;
     }
 }
+.flex1 {
+    flex: 1;
+}
+.shrink0 {
+    flex-shrink: 0;
+}
+.self_top {
+    align-self: flex-start;
+}
+.self_c {
+    align-self: center;
+}
+.self_bot {
+    align-self: flex-end;
+}
 
 .d_block {
     display: block;
+}
+.d_ib {
+    display: inline-block;
 }
 .ml_auto {
     margin-left: auto;

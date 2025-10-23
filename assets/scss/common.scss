@@ -1,3 +1,5 @@
+@use "sass:color";
+
 /* 공통 */
 @import "./variable";
 @import "./mixin";
@@ -26,6 +28,7 @@
 @import "./mList";
 @import "./zip_layer";
 @import "./calendar";
+@import "./notify";
 
 
 /* pages */

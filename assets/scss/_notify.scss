@@ -1,0 +1,25 @@
+.notify{
+    /* 트랜지션 시간은 JS의 TRANSITION과 일치 */
+    --dur: 200ms;
+    visibility: hidden;
+    opacity: 0;
+    min-width: 120px;
+    background: rgba(0,0,0,.8);
+    color:#fff;
+    text-align:center;
+    border-radius: 4px;
+    padding: 8px 12px;
+    position: fixed;
+    left: 50%;
+    bottom: 60px;
+    transform: translateX(-50%);
+    font-size: 14px;
+    z-index: 9999;
+    transition: all var(--dur), bottom var(--dur);
+
+    &.show{
+        visibility: visible;
+        opacity: 1;
+        bottom: 80px; /* 살짝 떠오르는 효과 */
+    }
+}

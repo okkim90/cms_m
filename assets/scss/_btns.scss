@@ -100,6 +100,10 @@
         // }
     }
     
+    &.disabled {
+        color: $c_midGrey !important;
+        pointer-events: none;
+    }
     
 }
 .btn_down2 {
@@ -629,5 +633,38 @@
         border-radius: 0;
         height: 50px;
         line-height: 48px;
+    }
+}
+
+.btn_copy {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: $c_midGrey;
+    color: #fff;
+    &::after {
+        content: "\f0c5";
+        font-family: "Font Awesome 6 Pro";
+    }
+}
+
+.btn_call {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: $c_midGrey;
+    color: #fff;
+    &::after {
+        content: "\f095";
+        font-family: "Font Awesome 6 Pro";
+        //font-weight: bold;
     }
 }

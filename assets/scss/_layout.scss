@@ -225,9 +225,7 @@
 }
 
 /* footer */
-.footer {
-  
-} 
+
 
 .search_details {
     display: flex;
@@ -1643,16 +1641,45 @@
     &_form {
         position: relative;
         flex: 1;
+
+        .field {
+            position: relative;
+        }
         .f_input {
+            min-width: 0;
             width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
             &.ty_mid {
                 padding: 0 10px;
-                padding-right: 42px;
+                padding-right: 64px;
             }
-            
         }
+        .btn_clear {
+            position: absolute;
+            right: 42px;           /* 필요 시 조정: 검색버튼 너비 고려 */
+            top: 50%;
+            transform: translateY(-50%);
+            display: none;         /* 기본은 숨김 */
+            width: 20px; 
+            height: 20px;
+            border: 0; 
+            border-radius: 50%;
+            line-height: 20px;
+            background: color.scale($c_solidGrey, $lightness: 10%);
+            font-size: 13px; 
+            color: #fff;
+            
+            text-align: center; cursor: pointer;
+
+            &.on {
+                display: inline-block;
+            }
+        }
+
         .btn_submit {
-            width: 42px;
+            width: 40px;
             height: 40px;
             border-radius: 0 50% 50% 0;
             position: absolute;
@@ -2883,5 +2910,9 @@
     }
 }
 
-
+.sec2 {
+    & + & {
+        margin-top: 15px;
+    }
+}
 

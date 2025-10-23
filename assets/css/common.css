@@ -5667,27 +5667,36 @@
 .d_flex.jc_fe {
   justify-content: flex-end;
 }
-.d_flex .flex1 {
-  flex: 1;
-}
-.d_flex .shrink0 {
-  flex-shrink: 0;
-}
-.d_flex .self_top {
-  align-self: flex-start;
-}
-.d_flex .self_c {
-  align-self: center;
-}
-.d_flex .self_bot {
-  align-self: flex-end;
-}
 .d_flex.ty_col {
   flex-direction: column;
 }
 
+.flex1 {
+  flex: 1;
+}
+
+.shrink0 {
+  flex-shrink: 0;
+}
+
+.self_top {
+  align-self: flex-start;
+}
+
+.self_c {
+  align-self: center;
+}
+
+.self_bot {
+  align-self: flex-end;
+}
+
 .d_block {
   display: block;
+}
+
+.d_ib {
+  display: inline-block;
 }
 
 .ml_auto {
@@ -8478,15 +8487,42 @@ tr:last-child .status_box_date {
   position: relative;
   flex: 1;
 }
+.srch_form .field {
+  position: relative;
+}
 .srch_form .f_input {
+  min-width: 0;
   width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .srch_form .f_input.ty_mid {
   padding: 0 10px;
-  padding-right: 42px;
+  padding-right: 64px;
+}
+.srch_form .btn_clear {
+  position: absolute;
+  right: 42px; /* 필요 시 조정: 검색버튼 너비 고려 */
+  top: 50%;
+  transform: translateY(-50%);
+  display: none; /* 기본은 숨김 */
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  line-height: 20px;
+  background: rgb(76.8, 76.8, 76.8);
+  font-size: 13px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+.srch_form .btn_clear.on {
+  display: inline-block;
 }
 .srch_form .btn_submit {
-  width: 42px;
+  width: 40px;
   height: 40px;
   border-radius: 0 50% 50% 0;
   position: absolute;
@@ -9543,6 +9579,10 @@ tr:last-child .status_box_date {
   gap: 0 8px;
 }
 
+.sec2 + .sec2 {
+  margin-top: 15px;
+}
+
 .sticky_bot {
   box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.08);
   position: sticky;
@@ -10473,6 +10513,10 @@ tr:last-child .status_box_date {
   color: #aaa;
   cursor: default;
 }
+.btn_down.disabled {
+  color: #777 !important;
+  pointer-events: none;
+}
 
 .btn_down2::after {
   content: "\f56d";
@@ -11012,6 +11056,38 @@ tr:last-child .status_box_date {
   border-radius: 0;
   height: 50px;
   line-height: 48px;
+}
+
+.btn_copy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: #777;
+  color: #fff;
+}
+.btn_copy::after {
+  content: "\f0c5";
+  font-family: "Font Awesome 6 Pro";
+}
+
+.btn_call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  border-radius: 4px;
+  background-color: #777;
+  color: #fff;
+}
+.btn_call::after {
+  content: "\f095";
+  font-family: "Font Awesome 6 Pro";
 }
 
 .tabs {
@@ -11692,10 +11768,10 @@ tr:last-child .status_box_date {
   font-size: 12px;
 }
 .mList_item + .mList_item {
-  margin-top: 14px;
+  margin-top: 15px;
 }
 .mList_inner {
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.04);
   display: flex;
   gap: 6px 0;
   flex-direction: column;
@@ -12119,6 +12195,31 @@ tr:last-child .status_box_date {
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.notify {
+  /* 트랜지션 시간은 JS의 TRANSITION과 일치 */
+  --dur: 200ms;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 120px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: fixed;
+  left: 50%;
+  bottom: 60px;
+  transform: translateX(-50%);
+  font-size: 14px;
+  z-index: 9999;
+  transition: all var(--dur), bottom var(--dur);
+}
+.notify.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 80px; /* 살짝 떠오르는 효과 */
 }
 
 /* pages */

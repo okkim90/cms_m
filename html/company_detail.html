@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Generator" content="KIC">
+    <meta name="Author" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Keywords" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Description" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <title>코리아인스트루먼트(주) 교정관리 시스템</title>
+    <script src="https://kit.fontawesome.com/8f18490998.js" crossorigin="anonymous" ></script>
+    <script src="../assets/js/main.js" defer></script>
+
+    <link rel="stylesheet" href="../assets/css/common.min.css">
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="skip-nav">
+        <a href="#container"></a>
+    </div>
+    <div id="wrap">
+        <!-- header -->
+        <header class="header">
+            <h1 class="header_tit">업체 상세보기</h1>
+            <button type="button" class="btn_back" aria-label="뒤로가기"></button>
+        </header>
+        <!--// header -->
+        <!-- sidenav -->
+        <aside class="sidenav">
+            <div class="sidenav_top">
+                <div>
+                    <div class="user_name"><b>김영술</b> (okkim)</div>
+                    <div class="co_name">코리아인스트루먼트 서울본사 (IT 서비스개발실)</div>
+                </div>
+                <button type="button" class="btn_nav_close" aria-label="close navigation"></button>
+            </div>
+            <ul class="nav">
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu1"></i>전체 조회</a>
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1 "><i class="ico_dep1 ty_menu2"></i>업체 조회</a>              
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu3"></i>견적 조회</a>          
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu4"></i>일정 조회</a>               
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu5"></i>교정 수수료</a>                
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu6"></i>예약번호</a>               
+                </li>
+            </ul>
+            <div class="sidenav_bot">
+                <button type="button" class="f_btn ty_s_mid _midGrey w_100">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </aside>
+        <!--// sidenav -->
+        <!--container-->
+        <main id="container" class="container">
+            <div id="contents" class="contents">
+                <section class="sec">
+                    <div class="sub_tit2">
+                        <h3 class="tit3">1. 업체 기본 정보</h3>  
+                    </div>
+                    <table class="v_tbl">
+                        <colgroup>
+                            <col style="width: 100px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>업체명 (국문)</th>
+                                <td>네이버 주식회사</td>
+                            </tr>
+                            <tr>
+                                <th>업체명 (영문)</th>
+                                <td>Naver</td>
+                            </tr>
+                            <tr>
+                                <th>대표자</th>
+                                <td>김네이</td>
+                            </tr>
+                            <tr>
+                                <th>사업자번호</th>
+                                <td>101-81-22242</td>
+                            </tr>
+                            <tr>
+                                <th>주소(국문)</th>
+                                <td>
+                                    서울특별시 구로구 디지털로111 네이버 빌딩 14층 어디어디 
+                                    <button 
+                                        type="button" 
+                                        onclick="copyTxt('서울특별시 구로구 디지털로111 네이버 빌딩 14층 어디어디')" 
+                                        class="btn_copy ml2">
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>주소(영문)</th>
+                                <td>1303, Nambusunhwan-ro, Guro-gu, Seoul, Korea KIC buliding 9 Floor</td>
+                            </tr>
+                            <tr>
+                                <th>E-mail</th>
+                                <td>email@naver.com</td>
+                            </tr>
+                            <tr>
+                                <th>전화번호</th>
+                                <td>02-1231-1154 <a href="tel:02-1231-1154" class="btn_call ml2"></a></td>
+                            </tr>
+                            <tr>
+                                <th>할인율</th>
+                                <td>20%</td>
+                            </tr>
+                            <tr>
+                                <th>메모/특이사항</th>
+                                <td>업체 정보에 등록되어 있는 정보 노출 없으면 공란.</td>
+                            </tr>
+                            <tr>
+                                <th>요구사항</th>
+                                <td>업체 정보에 등록되어 있는 정보 노출 없으면 공란.</td>
+                            </tr>
+                            <tr>
+                                <th>비고</th>
+                                <td>업체 정보에 등록되어 있는 정보 노출 없으면 공란.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="sec">
+                    <div class="sub_tit2">
+                        <h3 class="tit3">2. 담당자 정보 (2명)</h3>  
+                    </div>
+                    <div class="sec2">
+                        <table class="v_tbl">
+                            <colgroup>
+                                <col style="width: 100px;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th>담당자명</th>
+                                    <td>안태민</td>
+                                </tr>
+                                <tr>
+                                    <th>휴대폰 번호</th>
+                                    <td>010-1212-2324 <a href="tel:010-1212-2324" class="btn_call ml2"></a></td>
+                                </tr>
+                                <tr>
+                                    <th>전화번호</th>
+                                    <td>02-1122-4556 <a href="tel:02-1122-4556" class="btn_call ml2"></a></td>
+                                </tr>
+                                <tr>
+                                    <th>E-mail</th>
+                                    <td>korea@kic21.co.kr</td>
+                                </tr> 
+                                <tr>
+                                    <th>직급</th>
+                                    <td>대리</td>
+                                </tr>    
+                                <tr>
+                                    <th>지사</th>
+                                    <td>-</td>
+                                </tr>  
+                                <tr>
+                                    <th>부서</th>
+                                    <td>-</td>
+                                </tr> 
+                                <tr>
+                                    <th>담당업무</th>
+                                    <td>개발</td>
+                                </tr>     
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="sec2">
+                        <table class="v_tbl">
+                            <colgroup>
+                                <col style="width: 100px;">
+                                <col>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th>담당자명</th>
+                                    <td>안태민</td>
+                                </tr>
+                                <tr>
+                                    <th>휴대폰 번호</th>
+                                    <td>010-1212-2324 <a href="tel:010-1212-2324" class="btn_call ml2"></a></td>
+                                </tr>
+                                <tr>
+                                    <th>전화번호</th>
+                                    <td>02-1122-4556 <a href="tel:02-1122-4556" class="btn_call ml2"></a></td>
+                                </tr>
+                                <tr>
+                                    <th>E-mail</th>
+                                    <td>korea@kic21.co.kr</td>
+                                </tr> 
+                                <tr>
+                                    <th>직급</th>
+                                    <td>대리</td>
+                                </tr>    
+                                <tr>
+                                    <th>지사</th>
+                                    <td>-</td>
+                                </tr>  
+                                <tr>
+                                    <th>부서</th>
+                                    <td>-</td>
+                                </tr> 
+                                <tr>
+                                    <th>담당업무</th>
+                                    <td>개발</td>
+                                </tr>     
+                            </tbody>
+                        </table>
+                    </div> 
+                </section>
+                <div class="mt30 taC">
+                    <a href="./company_list.html" class="f_btn ty_mid w_160 _key">목록으로 돌아가기</a>
+                </div>
+            </div>
+        </main>
+        <!--//container-->
+        <!-- sticky_bot -->
+        <div class="sticky_bot">
+            <button type="button" aria-label="상단으로 이동" onclick="window.scrollTo(0,0)" class="btn_gotop"></button>
+            <ul class="botNav">
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico1"></span>
+                        <span class="tit">전체조회</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico2"></span>
+                        <span class="tit">업체</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico_home"></span>
+                        <span class="tit">홈</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico3"></span>
+                        <span class="tit">일정</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <button type="button" class="botNav_btn btn_nav_toggle">
+                        <span class="ico_box ico4"></span>
+                        <span class="tit">메뉴</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!-- sticky_bot -->
+        
+        <!-- 알림 박스 -->
+        <div id="notify" class="notify" role="status" aria-live="polite"></div>
+    </div>
+</body>
+</html>
