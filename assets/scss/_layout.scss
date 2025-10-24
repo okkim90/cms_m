@@ -4,6 +4,21 @@
     min-height: 100%;
 }
 
+/* 기본 잠금 스타일 */
+body.scroll-locked {
+  overflow: hidden;
+  touch-action: none; /* 모바일 터치 스크롤 방지 */
+  overscroll-behavior: contain;
+}
+
+/* iOS 완전 차단용 (선택) */
+@supports (-webkit-touch-callout: none) {
+  body.scroll-locked {
+    position: fixed;
+    width: 100%;
+  }
+}
+
 
 .tit {
     &1 {
@@ -1773,7 +1788,7 @@
             //margin-top: 30px;
             //border-top: 1px solid $c_line;
             gap: 10px;
-            padding: 20px 16px 20px;
+            padding: 15px 16px 15px;
             box-shadow: 0 -6px 6px rgba(#000, .07); 
             .f_btn {
                 flex: 1;
@@ -1795,7 +1810,7 @@
             }
             .tit {
                 display: block;
-                font-size: 14px;
+                font-size: 13px;
                 font-weight: 500;
                 margin-bottom: 5px;
             }
@@ -2916,3 +2931,125 @@
     }
 }
 
+
+.f_dl {
+    &_item {
+        display: flex;
+        //align-items: center;
+        & + & {
+            margin-top: 2px;
+        }
+        dt {
+            flex-shrink: 0;
+            white-space: nowrap;
+            margin-right: 4px;
+            font-weight: 500;
+        }
+    }
+}
+
+.company_slide {
+    position: relative;
+    &_wrap {
+        overflow: hidden;
+    }
+    &_utils {
+        &.hidden {
+            display: none;
+        }
+        //position: absolute;
+        right: 0;
+        top: -40px;
+        display: flex;
+        align-items: center;
+    }
+    &_pagination {
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0.2em;
+        padding: 0 10px;
+        box-sizing: border-box;
+        min-width: 60px;
+        width: auto;
+        font-size: 14px;
+        border: 1px solid $c_key;
+        color: $c_key;
+        border-radius: 4px 0 0 4px;
+        .swiper-pagination-current {
+            font-weight: bold;
+        }
+    }
+    &_ctrl {
+        width: 30px;
+        height: 30px;
+        background-color: $c_key;
+        //border-radius: 4px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        &.company_slide_prev {
+            margin-right: 1px;
+            &::after {
+                content: '\f053';
+                font-family: 'Font Awesome 6 Pro';
+                font-weight: bold;
+            }
+        }
+        &.company_slide_next {
+            border-radius: 0 4px 4px 0;
+             &::after {
+                content: '\f054';
+                font-family: 'Font Awesome 6 Pro';
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+.file_list {
+    margin-top: 10px;
+    li {
+        max-width: 100%;
+        & + li {
+            margin-top: 10px;
+        }
+    }
+    .btn_down3 {
+        display: flex;
+        align-items: flex-start;
+        color: $c_key2;
+        font-size: 12px;
+        line-height: 20px;
+        background-color: color.scale($c_blue, $lightness: 90%);
+        padding: 8px 10px;
+        border-radius: 6px;
+        border: 1px solid color.scale($c_blue, $lightness: 70%);
+        &:hover {
+            text-decoration: underline;
+        }
+        
+        
+        .file_name {
+            min-width: 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        &::before {
+            content:'\f56d';
+            font-family: "Font Awesome 6 Pro";
+            font-weight: bold;
+            
+            font-size: 16px;
+            text-align: center;
+            flex-shrink: 0;
+            margin-right: 5px;
+            background-size: 16px;
+        }
+    }
+}

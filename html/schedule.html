@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Generator" content="KIC">
+    <meta name="Author" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Keywords" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Description" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <title>코리아인스트루먼트(주) 교정관리 시스템</title>
+    <script src="https://kit.fontawesome.com/8f18490998.js" crossorigin="anonymous" ></script>
+    <script src="../assets/js/main.js" defer></script>
+    <script src="../assets/js/evtCalendar.js" defer></script>
+
+    <link rel="stylesheet" href="../assets/css/common.min.css">
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="skip-nav">
+        <a href="#container"></a>
+    </div>
+    <div id="wrap">
+        <!-- header -->
+        <header class="header">
+            <h1 class="header_tit">일정 조회</h1>
+            <button type="button" class="btn_back" aria-label="뒤로가기"></button>
+        </header>
+        <!--// header -->
+        <!-- sidenav -->
+        <aside class="sidenav">
+            <div class="sidenav_top">
+                <div>
+                    <div class="user_name"><b>김영술</b> (okkim)</div>
+                    <div class="co_name">코리아인스트루먼트 서울본사 (IT 서비스개발실)</div>
+                </div>
+                <button type="button" class="btn_nav_close" aria-label="close navigation"></button>
+            </div>
+            <ul class="nav">
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu1"></i>전체 조회</a>
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1 "><i class="ico_dep1 ty_menu2"></i>업체 조회</a>              
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu3"></i>견적 조회</a>          
+                </li>
+                <li class="nav_item on">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu4"></i>일정 조회</a>               
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu5"></i>교정 수수료</a>                
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu6"></i>예약번호</a>               
+                </li>
+            </ul>
+            <div class="sidenav_bot">
+                <button type="button" class="f_btn ty_s_mid _midGrey w_100">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </aside>
+        <!--// sidenav -->
+        <!--container-->
+        <main id="container" class="container">
+            <div id="contents" class="contents">
+                <div class="evtcal-wrap">
+                    <div class="evtcal-head">
+                        <div class="evtcal-title" id="calTitle"></div>
+                        <div class="evtcal-nav">
+                            <button id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+                            <button id="todayBtn">오늘</button>
+                            <button id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="evtcal-week">
+                        <div class="fc_red">일</div>
+                        <div>월</div>
+                        <div>화</div>
+                        <div>수</div>
+                        <div>목</div>
+                        <div>금</div>
+                        <div class="fc_blue">토</div>
+                    </div>
+                    <div class="evtcal-grid" id="calGrid"></div>
+
+                    <div class="evtcal-panel">
+                        <h3 id="panelTitle">이벤트</h3>
+                        <div id="live" class="evtcal-sr" aria-live="polite"></div>
+                        <div id="eventContainer"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--//container-->
+        <!-- sticky_bot -->
+        <div class="sticky_bot">
+            <button type="button" aria-label="상단으로 이동" onclick="window.scrollTo(0,0)" class="btn_gotop"></button>
+            <ul class="botNav">
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico1"></span>
+                        <span class="tit">전체조회</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico2"></span>
+                        <span class="tit">업체</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico_home"></span>
+                        <span class="tit">홈</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico3"></span>
+                        <span class="tit">일정</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <button type="button" class="botNav_btn btn_nav_toggle">
+                        <span class="ico_box ico4"></span>
+                        <span class="tit">메뉴</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!-- sticky_bot -->
+       
+    </div>
+    <!-- 초기화 코드 -->
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+            const root = document.querySelector('.evtcal-wrap');
+
+            // [DEV] 샘플 데이터 
+            const initEvents = {
+                "2025-10-21":[
+                    {id:1, title:"1.의료법인사과나무의료재단(사과나무구강유래물은행)_( 의료법인사과나무의료재단(사과나무구강유래물은행) / 경기도 고양시 )_소영_항온조6,rpm2,전기1,총 9대,차재홍____223호 8453 - 쏘렌토 하이브리드/", tag:"출장"},
+                    {id:2, title:"무슨무슨 교육들으러감", tag:"교육"},
+                    {id:3, title:"누구누구 연차사용", tag:"연차"},
+                    {id:4, title:"누구누구 오전반차 08:30~10:30", tag:"반차(오전)"},
+                    {id:5, title:"누구누구 오후반차 15:30~17:30", tag:"반차(오후)"},
+                    {id:6, title:"부서 회식", tag:"기타"}
+                ],
+                "2025-10-27":[
+                    {id:7, title:"누구누구 오전반차 08:30~10:30", tag:"반차(오전)"},
+                    {id:8, title:"무슨무슨 교육들으러감", tag:"교육"}
+                ],
+                "2025-11-27":[
+                    {id:9, title:"1.의료법인사과나무의료재단(사과나무구강유래물은행)_( 의료법인사과나무의료재단(사과나무구강유래물은행) / 경기도 고양시 )_소영_항온조6,rpm2,전기1,총 9대,차재홍____223호 8453 - 쏘렌토 하이브리드/", tag:"출장"},
+                    {id:10, title:"누구누구 연차사용", tag:"연차"}
+                ]
+            };
+
+            const cal = new EvtCalendar(root, {
+                initialEvents: initEvents,
+                autoSelectOnInit: false,        // 자동 선택 끔
+                autoSelectOnMonthChange: false, // 월 변경 자동 선택 끔
+
+                // ✅ [DEV] 월별 일정 api 호출
+                onMonthChange: async (year, month0) => {
+                    console.log(year, month0 + 1);
+                    // 예: 실제 구현 시
+                    // const res = await fetch(`/api/events?year=${year}&month=${month0 + 1}`);
+                    // return res.ok ? await res.json() : {};
+                },
+
+                // ✅ [DEV] 상세 이동 처리
+                onEventClick: (ev) => {
+                    console.log(ev);
+                    // 예: location.href = `/event/detail?id=${encodeURIComponent(ev.id)}`;
+                },
+            });
+
+            // ✅ 초기 로드시 오늘 날짜를 선택 상태로
+            cal.goToday();
+        });
+    </script>
+</body>
+</html>

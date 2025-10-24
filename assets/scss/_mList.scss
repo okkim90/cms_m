@@ -1,12 +1,12 @@
 .mList {
     &_item {
         font-size: 12px;
-        
-        
         & + & {
             margin-top: 15px;
+            @at-root .mList.ty_small & {
+                margin-top: 10px;
+            }
         }
-        
     }
     &_inner {
         box-shadow: 0 2px 2px rgba(#000,.04);
@@ -20,6 +20,9 @@
         &:has(.cal_detail_wrap.on) {
             border-color: $c_blue;
             outline: 1px solid $c_blue;
+        }
+        @at-root .mList.ty_small & { 
+            padding: 8px;
         }
     }
     &_sec {

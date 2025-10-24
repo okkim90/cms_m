@@ -372,84 +372,18 @@ function close_toast(target){
 
 const ScrollLock = (() => {
   let lockCount = 0;
-  let scrollY = 0;
-  let prevPaddingRight = '';
-  let prevOverflow = '';
-  let prevPosition = '';
-  let prevTop = '';
-  let touchMoveHandler = null;
-
-  const isIOS = () => {
-    if (typeof navigator === 'undefined') return false;
-    return /iP(ad|hone|od)/.test(navigator.platform)
-      || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
-  };
-
-  const getScrollbarWidth = () => {
-    // 이미 스크롤바가 숨겨져 있으면 0
-    if (window.innerWidth === document.documentElement.clientWidth) return 0;
-    return window.innerWidth - document.documentElement.clientWidth;
-  };
 
   const lock = () => {
     lockCount++;
-    if (lockCount > 1) return; // 이미 잠금 상태면 카운트만 증가
-
-    const body = document.body;
-    scrollY = window.scrollY || window.pageYOffset || 0;
-
-    // 레이아웃 점프 방지용 패딩 (스크롤바 너비만큼)
-    const sbw = getScrollbarWidth();
-    prevPaddingRight = body.style.paddingRight;
-    if (sbw > 0) {
-      body.style.paddingRight = `${(parseFloat(getComputedStyle(body).paddingRight) || 0) + sbw}px`;
-    }
-
-    // 기존 스타일 백업
-    prevOverflow = body.style.overflow;
-    prevPosition = body.style.position;
-    prevTop = body.style.top;
-
-    // 스크롤 잠금
-    if (isIOS()) {
-      // iOS는 position: fixed로 고정 + touchmove 방지
-      body.style.position = 'fixed';
-      body.style.top = `-${scrollY}px`;
-      body.style.width = '100%';
-      // 추가로 터치 스크롤 자체를 막아준다.
-      touchMoveHandler = (e) => e.preventDefault();
-      document.addEventListener('touchmove', touchMoveHandler, { passive: false });
-    } else {
-      body.style.overflow = 'hidden';
-    }
-
-    body.setAttribute('data-scroll-lock', 'true');
+    if (lockCount > 1) return; // 이미 잠금 중
+    document.body.classList.add('scroll-locked');
   };
 
   const unlock = () => {
     if (lockCount === 0) return;
     lockCount--;
-    if (lockCount > 0) return; // 아직 다른 레이어가 남아있음
-
-    const body = document.body;
-
-    // iOS 복원
-    if (isIOS()) {
-      document.removeEventListener('touchmove', touchMoveHandler, { passive: false });
-      touchMoveHandler = null;
-      body.style.position = prevPosition;
-      body.style.top = prevTop;
-      body.style.width = '';
-      // 원래 위치로 복귀
-      window.scrollTo(0, scrollY);
-    } else {
-      body.style.overflow = prevOverflow;
-    }
-
-    // 패딩 복원
-    body.style.paddingRight = prevPaddingRight;
-
-    body.removeAttribute('data-scroll-lock');
+    if (lockCount > 0) return; // 아직 다른 레이어 남음
+    document.body.classList.remove('scroll-locked');
   };
 
   return { lock, unlock };

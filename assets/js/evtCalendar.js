@@ -1,3 +1,26 @@
+const TAG_COLORS = {
+  "출장": { bg: "#ff5c5c", border: "#ff5c5c", color: "#fff" },
+  "연차": { bg: "#ff7a00", border: "#ff7a00", color: "#fff" },
+  "반차(오전)": { bg: "#41908d", border: "#41908d", color: "#fff" },
+  "반차(오후)": { bg: "#0084ff", border: "#0084ff", color: "#fff" },
+  "교육": { bg: "#7636ff", border: "#7636ff", color: "#fff" },
+  "기타": { bg: "#7636ff", border: "#7636ff", color: "#fff" },
+};
+
+function getDisplayTag(tag) {
+  return tag && tag.startsWith("반차") ? "반차" : tag;
+}
+
+function applyTagStyle(el, tag) {
+  const s = TAG_COLORS[tag] || TAG_COLORS["기타"];
+  if (s.bg) el.style.setProperty("--tag-bg", s.bg);
+  if (s.border) el.style.setProperty("--tag-border", s.border);
+  if (s.color) el.style.setProperty("--tag-color", s.color);
+}
+
+
+
+
 (function () {
   const pad = (n) => String(n).padStart(2, "0");
   const ymd = (d) => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
@@ -134,7 +157,7 @@
       }
 
       const items = this.events[dateKey] || [];
-      this.refs.panelTitle && (this.refs.panelTitle.textContent = `${dateKey} 일정 : ${items.length}개`);
+      this.refs.panelTitle && (this.refs.panelTitle.innerHTML = `${dateKey} 일정 : <span class="fc_blue fwM">${items.length}</span>개`);
       this.refs.live && (this.refs.live.textContent = `${dateKey} 일정 ${items.length}개`);
 
       const panel = this.refs.panel;
@@ -155,13 +178,35 @@
       items.forEach((ev) => {
         const row = document.createElement("div");
         row.className = "evtcal-item";
-        row.innerHTML = `
-          <div class="evtcal-time">${ev.time || "--:--"}</div>
-          <div class="evtcal-title">${ev.title || ""}</div>
-          ${ev.tag ? `<span class="evtcal-tag">${ev.tag}</span>` : ""}
-        `;
 
-        // ✅ 상세 처리 콜백(외부에서 주입)
+        // ✅ time 있을 때만 노출
+        if (ev.time) {
+          const timeEl = document.createElement("div");
+          timeEl.className = "evtcal-time";
+          timeEl.textContent = ev.time;
+          row.appendChild(timeEl);
+        }
+
+        // ✅ tag 있으면 추가 + 색상 적용
+        if (ev.tag) {
+          const tagEl = document.createElement("span");
+          tagEl.className = "evtcal-tag";
+          tagEl.textContent = getDisplayTag(ev.tag);   // ✅ 노출 텍스트는 '반차'만
+          applyTagStyle(tagEl, ev.tag);                // ✅ 색상은 원본 태그 기준
+          // (선택) 툴팁으로 원본 태그 유지하고 싶으면:
+          tagEl.title = ev.tag;
+          row.appendChild(tagEl);
+        }
+
+        // ✅ title은 항상 표시
+        const titleEl = document.createElement("div");
+        titleEl.className = "evtcal-title";
+        titleEl.textContent = ev.title || "";
+        row.appendChild(titleEl);
+
+        
+
+        // ✅ 클릭 시 상세 콜백
         row.addEventListener("click", () => {
           if (this.onEventClick) this.onEventClick(ev);
         });

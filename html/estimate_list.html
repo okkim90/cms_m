@@ -24,7 +24,7 @@
     <div id="wrap">
         <!-- header -->
         <header class="header">
-            <h1 class="header_tit">업체 조회</h1>
+            <h1 class="header_tit">견적 조회</h1>
             <button type="button" class="btn_back" aria-label="뒤로가기"></button>
         </header>
         <!--// header -->
@@ -44,7 +44,7 @@
                 <li class="nav_item">
                     <a href="" class="btn_dep1 "><i class="ico_dep1 ty_menu2"></i>업체 조회</a>              
                 </li>
-                <li class="nav_item">
+                <li class="nav_item on">
                     <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu3"></i>견적 조회</a>          
                 </li>
                 <li class="nav_item">
@@ -85,28 +85,36 @@
                                 </div>
                                 <div class="srch_detail_cont">
                                     <div class="srch_detail_sec">
-                                        <label for="" class="tit">업체명</label>
-                                        <input type="text" class="f_input ty_mid w100" placeholder="업체명을 입력해주세요.">
+                                        <label for="" class="tit">기간 조회 (접수일)</label>
+                                        <div class="date_set"> 
+                                            <input type="date" class="f_input ty_mid _start" onchange="syncEndMin(this)">
+                                            ~
+                                            <input type="date" class="f_input ty_mid _end" onchange="syncStartMax(this)">
+                                        </div>
                                     </div>
                                     <div class="srch_detail_sec">
-                                        <label for="" class="tit">사업자번호</label>
-                                        <input type="text" class="f_input ty_mid w100" placeholder="사업자번호를 입력해주세요.">
+                                        <label for="" class="tit">작성번호</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="작성번호를 입력해주세요.">
                                     </div>
                                     <div class="srch_detail_sec">
-                                        <label for="" class="tit">주소</label>
-                                        <input type="text" class="f_input ty_mid w100" placeholder="주소를 입력해주세요.">
+                                        <label for="" class="tit">신청 업체명</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="신청 업체명을 입력해주세요.">
                                     </div>
                                     <div class="srch_detail_sec">
-                                        <label for="" class="tit">대표자명</label>
-                                        <input type="text" class="f_input ty_mid w100" placeholder="대표자명을 입력해주세요.">
+                                        <label for="" class="tit">성적서 업체명</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="성적서 업체명을 입력해주세요.">
                                     </div>
                                     <div class="srch_detail_sec">
-                                        <label for="" class="tit">담당자명</label>
-                                        <input type="text" class="f_input ty_mid w100" placeholder="담당자명을 입력해주세요.">
+                                        <label for="" class="tit">계측기명</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="계측기명을 입력해주세요.">
                                     </div>
                                     <div class="srch_detail_sec">
-                                        <label for="" class="tit">휴대폰 번호</label>
-                                        <input type="tel" class="f_input ty_mid w100" placeholder="숫자만 입력해주세요.">
+                                        <label for="" class="tit">제조사</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="제조사를 입력해주세요.">
+                                    </div>
+                                    <div class="srch_detail_sec">
+                                        <label for="" class="tit">형식</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="형식을 입력해주세요.">
                                     </div>
                                 </div>
                                 <div class="srch_detail_bot">
@@ -136,71 +144,53 @@
                     </div>
                     <ul class="mList">
                         <li class="mList_item">
-                            <a href="./company_detail.html" class="mList_inner">
+                            <a href="./estimate_detail.html" class="mList_inner">
                                 <div class="mList_sec mList_top _gapX4 fw_w">
-                                    <span class="f_tag ty_small2 _blue">서울</span>
-                                    <strong class="fz_4">네이버 주식회사네이버</strong>
-                                    <span class="shrink0 fz_3 ml_auto fc_key fwM">[담당자 2]</span>
+                                    <span class="f_tag ty_small2 _blue">견적 완료</span>
+                                    <span class="date ml2">2025-10-15</span>
+                                    <span class="shrink0 ml_auto fc_key fwB">1,000건</span>
                                 </div>
-                                <div class="mList_sec _gap2">
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">대표자 :</dt>
-                                        <dd>김네이</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">사업자번호 :</dt>
-                                        <dd>101-81-22242</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">주소 :</dt>
-                                        <dd>서울특별시 구로구 디지털로 1111 네이버빌딩 14층</dd>
-                                    </dl> 
-                                </div>   
-                            </a>
-                        </li>
-                        <li class="mList_item">
-                            <a href="./company_detail.html" class="mList_inner">
-                                <div class="mList_sec mList_top _gapX4 fw_w">
-                                    <span class="f_tag ty_small2 _blue">부산</span>
-                                    <strong class="fz_4">네이버 주식회사네이버</strong>
-                                    <span class="shrink0 fz_3 ml_auto fc_key fwM">[담당자 2]</span>
+                                <div class="mList_sec">
+                                    <span class="fz_5 fwM">EST-250826-01</span>
+                                    <span class="fz_5 ml_auto fwB fc_key">21,123,000 원</span>
                                 </div>
-                                <div class="mList_sec _gap2">
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">대표자 :</dt>
-                                        <dd>김네이</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">사업자번호 :</dt>
-                                        <dd>101-81-22242</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">주소 :</dt>
-                                        <dd>서울특별시 구로구 디지털로 1111 네이버빌딩 14층</dd>
-                                    </dl> 
+                                <div class="mList_sec">
+                                    <strong class="mr4">그랜드졍션</strong> 
+                                    <span class="fc_solidGrey">[네이버 주식회사]</span> 
                                 </div>
                             </a>
                         </li>
                         <li class="mList_item">
-                            <a href="./company_detail.html" class="mList_inner">
+                            <a href="./estimate_detail.html" class="mList_inner">
                                 <div class="mList_sec mList_top _gapX4 fw_w">
-                                    <span class="f_tag ty_small2 _blue">대전</span>
-                                    <strong class="fz_4">네이버 주식회사네이버</strong>
-                                    <span class="shrink0 fz_3 ml_auto fc_key fwM">[담당자 2]</span>
+                                    <span class="f_tag ty_small2 _blue_ol">견적 대기</span>
+                                    <span class="date ml2">2025-10-15</span>
+                                    <span class="shrink0  ml_auto fc_key fwB">1,000건</span>
                                 </div>
-                                <div class="mList_sec _gap2">
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">대표자 :</dt>
-                                        <dd>김네이</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">사업자번호 :</dt>
-                                        <dd>101-81-22242</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">주소 :</dt>
-                                        <dd>서울특별시 구로구 디지털로 1111 네이버빌딩 14층</dd>
-                                    </dl> 
+                                <div class="mList_sec">
+                                    <span class="fz_5 fwM">EST-250826-01</span>
+                                    <span class="fz_5 ml_auto fwB fc_key">-</span>
+                                </div>
+                                <div class="mList_sec">
+                                    <strong class="mr4">그랜드졍션</strong> 
+                                    <span class="fc_solidGrey">[네이버 주식회사]</span> 
+                                </div>
+                            </a>
+                        </li>
+                        <li class="mList_item">
+                            <a href="./estimate_detail.html" class="mList_inner">
+                                <div class="mList_sec mList_top _gapX4 fw_w">
+                                    <span class="f_tag ty_small2 _blue_ol">견적 진행중</span>
+                                    <span class="date ml2">2025-10-15</span>
+                                    <span class="shrink0 ml_auto fc_key fwB">1,000건</span>
+                                </div>
+                                <div class="mList_sec">
+                                    <span class="fz_5 fwM">EST-250826-01</span>
+                                    <span class="fz_5 ml_auto fwB fc_key">-</span>
+                                </div>
+                                <div class="mList_sec">
+                                    <strong class="mr4">그랜드졍션</strong> 
+                                    <span class="fc_solidGrey">[네이버 주식회사]</span> 
                                 </div>
                             </a>
                         </li>

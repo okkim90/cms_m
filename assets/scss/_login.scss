@@ -15,8 +15,11 @@
         text-align: center;
         padding-bottom: 30px;
         .logo {
+            width: 100%;
+            padding: 0 30px;
             img {
                 width: 100%;
+                max-width: 300px;
             }
         }
     }

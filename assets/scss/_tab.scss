@@ -2,9 +2,9 @@
     display: flex;
     border-bottom: 1px solid $c_line;
     border-left: 1px solid $c_line;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     
-    border-radius: 10px 0 0 8px;
+    border-radius: 4px 0 0 4px;
     overflow: hidden;
     
     &_item {
@@ -15,10 +15,10 @@
             background-color: rgba(#000, .04);
         }
         &:first-child {
-            border-top-left-radius: 8px;
+            border-top-left-radius: 4px;
         }
         &:last-child {
-            border-top-right-radius: 8px;
+            border-top-right-radius: 4px;
         }
         &.on {
             background-color: $c_key;
@@ -38,7 +38,7 @@
         text-align: center;
         padding: 0 20px;
         height: 36px;
-        font-size: 14px;
+        font-size: 13px;
     }
     &_cont {
         display: none;

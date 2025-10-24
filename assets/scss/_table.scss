@@ -36,6 +36,14 @@
     td {
         border-bottom: 1px solid $c_line;
     }
+
+    tr._strong {
+        th , td {
+            background-color: color.scale($c_key, $lightness: 90%);
+        }
+    }
+
+    
     &_toggle {
         display: flex;
         margin: 0 auto;
