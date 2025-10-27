@@ -24,8 +24,9 @@
     <div id="wrap">
         <!-- header -->
         <header class="header">
-            <h1 class="header_tit">업체 조회</h1>
+            <h1 class="header_tit">예약 번호</h1>
             <button type="button" class="btn_back" aria-label="뒤로가기"></button>
+            <button type="button" onclick="toast('add_number')" class="btn_add_number btn_ico ty_mid _key" aria-label="예약번호 생성"><i class="fa-solid fa-plus"></i></button>
         </header>
         <!--// header -->
         <!-- sidenav -->
@@ -41,7 +42,7 @@
                 <li class="nav_item">
                     <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu1"></i>전체 조회</a>
                 </li>
-                <li class="nav_item on">
+                <li class="nav_item ">
                     <a href="" class="btn_dep1 "><i class="ico_dep1 ty_menu2"></i>업체 조회</a>              
                 </li>
                 <li class="nav_item">
@@ -53,7 +54,7 @@
                 <li class="nav_item">
                     <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu5"></i>교정 수수료</a>                
                 </li>
-                <li class="nav_item">
+                <li class="nav_item on">
                     <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu6"></i>예약번호</a>               
                 </li>
             </ul>
@@ -70,7 +71,7 @@
                         <form class="srch_form">
                             <div class="field">
                                 <input id="q" type="text" class="f_input ty_mid ty_round"
-                                    placeholder="업체명을 입력해주세요." aria-label="업체명 검색어 입력">
+                                    placeholder="접수번호를 입력해주세요." aria-label="접수번호를 입력해주세요.">
                                 <button type="button" class="btn_clear" aria-label="입력 내용 지우기"
                                         onclick="clearField(this)"><i class="fa-solid fa-xmark"></i></button>
                                 <button type="submit" class="btn_submit" aria-label="검색하기"></button>
@@ -85,28 +86,24 @@
                                 </div>
                                 <div class="srch_detail_cont">
                                     <div class="srch_detail_sec">
+                                        <label for="" class="tit">기간 조회 (예약일)</label>
+                                        <div class="date_set"> 
+                                            <input type="date" class="f_input ty_mid _start" onchange="syncEndMin(this)">
+                                            ~
+                                            <input type="date" class="f_input ty_mid _end" onchange="syncStartMax(this)">
+                                        </div>
+                                    </div>
+                                    <div class="srch_detail_sec">
+                                        <label for="" class="tit">접수번호</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="접수번호를 입력해주세요.">
+                                    </div>
+                                    <div class="srch_detail_sec">
+                                        <label for="" class="tit">예약자</label>
+                                        <input type="text" class="f_input ty_mid w100" placeholder="예약자를 입력해주세요.">
+                                    </div>
+                                    <div class="srch_detail_sec">
                                         <label for="" class="tit">업체명</label>
                                         <input type="text" class="f_input ty_mid w100" placeholder="업체명을 입력해주세요.">
-                                    </div>
-                                    <div class="srch_detail_sec">
-                                        <label for="" class="tit">사업자번호</label>
-                                        <input type="text" class="f_input ty_mid w100" placeholder="사업자번호를 입력해주세요.">
-                                    </div>
-                                    <div class="srch_detail_sec">
-                                        <label for="" class="tit">주소</label>
-                                        <input type="text" class="f_input ty_mid w100" placeholder="주소를 입력해주세요.">
-                                    </div>
-                                    <div class="srch_detail_sec">
-                                        <label for="" class="tit">대표자명</label>
-                                        <input type="text" class="f_input ty_mid w100" placeholder="대표자명을 입력해주세요.">
-                                    </div>
-                                    <div class="srch_detail_sec">
-                                        <label for="" class="tit">담당자명</label>
-                                        <input type="text" class="f_input ty_mid w100" placeholder="담당자명을 입력해주세요.">
-                                    </div>
-                                    <div class="srch_detail_sec">
-                                        <label for="" class="tit">휴대폰 번호</label>
-                                        <input type="tel" class="f_input ty_mid w100" placeholder="숫자만 입력해주세요.">
                                     </div>
                                 </div>
                                 <div class="srch_detail_bot">
@@ -136,73 +133,49 @@
                     </div>
                     <ul class="mList">
                         <li class="mList_item">
-                            <a href="./company_detail.html" class="mList_inner">
+                            <div class="mList_inner">
                                 <div class="mList_sec mList_top _gapX4 fw_w">
-                                    <span class="f_tag ty_small2 _blue">서울</span>
-                                    <strong class="fz_4">네이버 주식회사네이버</strong>
-                                    <span class="shrink0 fz_3 ml_auto fc_key fwM">[담당자 2]</span>
+                                    <strong class="fz_4">25025987</strong>
+                                    <span class="date ml_auto">2024-03-24</span>
                                 </div>
-                                <div class="mList_sec _gap2">
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">대표자 :</dt>
-                                        <dd>김네이</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">사업자번호 :</dt>
-                                        <dd>101-81-22242</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">주소 :</dt>
-                                        <dd>서울특별시 구로구 디지털로 1111 네이버빌딩 14층</dd>
-                                    </dl> 
+                                <div class="mList_sec _gap4">
+                                    <div>
+                                        <span class="fwM fz_3">코리아정션</span>
+                                        <span class="fc_midGrey fwM fz_3">[홍길동]</span>
+                                    </div>
+                                    <button type="button" class="f_btn ty_small _red ml_auto">삭제</button>
                                 </div>   
-                            </a>
+                            </div>
                         </li>
                         <li class="mList_item">
-                            <a href="./company_detail.html" class="mList_inner">
+                            <div class="mList_inner">
                                 <div class="mList_sec mList_top _gapX4 fw_w">
-                                    <span class="f_tag ty_small2 _blue">부산</span>
-                                    <strong class="fz_4">네이버 주식회사네이버</strong>
-                                    <span class="shrink0 fz_3 ml_auto fc_key fwM">[담당자 2]</span>
+                                    <strong class="fz_4">25025987</strong>
+                                    <span class="date ml_auto">2024-03-24</span>
                                 </div>
-                                <div class="mList_sec _gap2">
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">대표자 :</dt>
-                                        <dd>김네이</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">사업자번호 :</dt>
-                                        <dd>101-81-22242</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">주소 :</dt>
-                                        <dd>서울특별시 구로구 디지털로 1111 네이버빌딩 14층</dd>
-                                    </dl> 
-                                </div>
-                            </a>
+                                <div class="mList_sec _gap4">
+                                    <div>
+                                        <span class="fwM fz_3">코리아정션</span>
+                                        <span class="fc_midGrey fwM fz_3">[홍길동]</span>
+                                    </div>
+                                    <button type="button" class="f_btn ty_small _green ml_auto">취소</button>
+                                </div>   
+                            </div>
                         </li>
                         <li class="mList_item">
-                            <a href="./company_detail.html" class="mList_inner">
+                            <div class="mList_inner">
                                 <div class="mList_sec mList_top _gapX4 fw_w">
-                                    <span class="f_tag ty_small2 _blue">대전</span>
-                                    <strong class="fz_4">네이버 주식회사네이버</strong>
-                                    <span class="shrink0 fz_3 ml_auto fc_key fwM">[담당자 2]</span>
+                                    <strong class="fz_4">25025987</strong>
+                                    <span class="date ml_auto">2024-03-24</span>
                                 </div>
-                                <div class="mList_sec _gap2">
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">대표자 :</dt>
-                                        <dd>김네이</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">사업자번호 :</dt>
-                                        <dd>101-81-22242</dd>
-                                    </dl>
-                                    <dl class="w100 d_flex _gap4">
-                                        <dt class="shrink0">주소 :</dt>
-                                        <dd>서울특별시 구로구 디지털로 1111 네이버빌딩 14층</dd>
-                                    </dl> 
-                                </div>
-                            </a>
+                                <div class="mList_sec _gap4">
+                                    <div>
+                                        <span class="fwM fz_3">코리아정션</span>
+                                        <span class="fc_midGrey fwM fz_3">[홍길동]</span>
+                                    </div>
+                                    <button type="button" class="f_btn ty_small _red ml_auto">삭제</button>
+                                </div>   
+                            </div>
                         </li>
                     </ul> 
                     <div class="paging_wrap mt20">
@@ -259,7 +232,28 @@
             </ul>
         </div>
         <!-- sticky_bot -->
-       
+        <!--[D] 예약번호 생성 -->
+        <div class="toast_wrap" data-toast="add_number">
+            <form class="toast_inner">
+                <div class="toast_top">
+                    <h3 class="tit2">예약번호 생성</h3>
+                    <button type="button" class="toast_close" onclick="close_toast(this)" aria-label="닫기"></button>
+                </div>
+                <div class="toast_cont">
+                    <div class="srch_detail_sec">
+                        <div class="d_flex mb6 fz_3">
+                            <strong>업체명</strong>
+                            <span class="ml_auto fwM">일시: 2025-10-17 13:12:11</span>
+                        </div>
+                        <input type="text" class="f_input ty_mid w100" placeholder="업체명을 입력해주세요.">
+                    </div>
+                </div>
+                <div class="toast_bot">
+                    <button type="button" class="f_btn ty_mid _solidGrey w_100" onclick="reset(this)">초기화 <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i></button>
+                    <input type="submit" value="생성" class="f_btn ty_mid _key flex1">
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>

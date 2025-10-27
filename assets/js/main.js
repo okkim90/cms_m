@@ -481,3 +481,19 @@ function initClearToggles() {
 document.addEventListener('DOMContentLoaded', initClearToggles);
 // 히스토리 복원(뒤로가기) 시 값 복원 대응
 window.addEventListener('pageshow', initClearToggles);
+
+
+
+// toast
+function toast(target){
+    let toast_wrap = document.querySelectorAll('.toast_wrap');
+    toast_wrap.forEach(e=>{
+        e.dataset.toast == target ? e.classList.add('on') : null;
+    });
+    ScrollLock.lock();
+}
+function close_toast(target){
+    let toast_wrap = target.closest('.toast_wrap');
+    toast_wrap.classList.remove('on');
+    ScrollLock.unlock();
+}

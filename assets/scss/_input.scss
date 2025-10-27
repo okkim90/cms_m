@@ -1,20 +1,23 @@
 .f_input {
+    min-width: 0;
     max-width: 100%;
     border: 1px solid $c_line;
     box-sizing: border-box;
     text-overflow: ellipsis;
-
     &.ph_left {
         &::placeholder {
             text-align: left;
         }
     }
-
+   
     &:read-only {
-        background-color: lighten($c_key, 47%);
+        background-color: lighten($c_key, 56%);
         &:focus {
-            background-color: lighten($c_key, 47%);
+            background-color: lighten($c_key, 56%);
         }
+    }
+    &:disabled {
+        background-color: $c_bg_grey;
     }
     &.taC {
         text-align: center;
@@ -45,6 +48,20 @@
     }
     &.ty_mid {
         height: 40px;
+        padding: 0 10px;
+        border-radius: 4px;
+        font-size: 13px;
+        &.inp_date {
+            padding-left: 8px;
+            padding-right: 26px;
+            background-position: calc(100% - 6px) center;
+        }
+        &.ty_round {
+            border-radius: 18px;
+        }
+    }
+    &.ty_mid2 {
+        height: 32px;
         padding: 0 10px;
         border-radius: 4px;
         font-size: 13px;

@@ -156,6 +156,11 @@ $fz: (
             @include btn_op($color ,$color);
         }
     }
+    .btn_ico {
+        &.#{$key} {
+            @include btn($color, $color)
+        }
+    }
 
     .f_tag {
         &.#{$key} {

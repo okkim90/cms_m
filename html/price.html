@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Generator" content="KIC">
+    <meta name="Author" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Keywords" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Description" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <title>코리아인스트루먼트(주) 교정관리 시스템</title>
+    <script src="https://kit.fontawesome.com/8f18490998.js" crossorigin="anonymous" ></script>
+    <script src="../assets/js/main.js" defer></script>
+
+    <link rel="stylesheet" href="../assets/css/common.min.css">
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="skip-nav">
+        <a href="#container"></a>
+    </div>
+    <div id="wrap">
+        <!-- header -->
+        <header class="header">
+            <h1 class="header_tit">교정 수수료 조회</h1>
+            <button type="button" class="btn_back" aria-label="뒤로가기"></button>
+        </header>
+        <!--// header -->
+        <!-- sidenav -->
+        <aside class="sidenav">
+            <div class="sidenav_top">
+                <div>
+                    <div class="user_name"><b>김영술</b> (okkim)</div>
+                    <div class="co_name">코리아인스트루먼트 서울본사 (IT 서비스개발실)</div>
+                </div>
+                <button type="button" class="btn_nav_close" aria-label="close navigation"></button>
+            </div>
+            <ul class="nav">
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu1"></i>전체 조회</a>
+                </li>
+                <li class="nav_item ">
+                    <a href="" class="btn_dep1 "><i class="ico_dep1 ty_menu2"></i>업체 조회</a>              
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu3"></i>견적 조회</a>          
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu4"></i>일정 조회</a>               
+                </li>
+                <li class="nav_item on">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu5"></i>교정 수수료</a>                
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu6"></i>예약번호</a>               
+                </li>
+            </ul>
+            <div class="sidenav_bot">
+                <button type="button" class="f_btn ty_s_mid _midGrey w_100">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </aside>
+        <!--// sidenav -->
+        <!--container-->
+        <main id="container" class="container">
+            <div id="contents" class="contents">
+                <section class="sec">
+                    <form action="">
+                        <select name="" id="" class="f_select ty_mid w100">
+                            <option value="" disabled selected>교정분야</option>
+                            <option value="">각도</option>
+                            <option value="">선형치수</option>
+                            <option value="">전자기장의 세기 및 안테나</option>
+                            <option value="">토크</option>
+                        </select>
+                        <input type="text" class="f_input ty_mid w100 mt8" placeholder="교정작업 표준서명">
+                        <input type="text" class="f_input ty_mid w100 mt8" placeholder="분류코드">
+                        <div class="d_flex _gap8 mt8">
+                            <button type="button" class="f_btn ty_mid _solidGrey w_100" onclick="reset(this)">초기화 <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i></button>
+                            <input type="submit" value="검색" class="f_btn ty_mid _key flex1">
+                        </div>
+                    </form>
+                </section>
+                <section class="sec">
+                    <div class="no_result_box ty_bg ty_small">
+                        <div class="no_result_box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <p class="mt10 fc_grey">검색조건을 입력해주세요.</p> 
+                        </div>
+                    </div>
+                    <div class="no_result_box ty_bg ty_small">
+                        <div class="no_result_box">
+                            <i class="fa-solid fa-hexagon-exclamation"></i>
+                            <p class="mt10 fc_grey">검색결과가 없습니다.</p> 
+                        </div>
+                    </div>
+                    <div class="d_flex ai_b mb10">
+                        <h2 class="tit4"><b>검색 결과 :</b> 166건</h2>
+                    </div>
+                    <ul class="mList">
+                        <li class="mList_item">
+                            <a href="./price_detail.html" class="mList_inner">
+                                <div class="mList_sec mList_top _gapX4 fw_w">
+                                    <strong class="fz_3">전자기장의 세기 및 안테나</strong>
+                                    <span class="fc_midGrey">[10235-1]</span>
+                                    <strong class="fc_blue fz_4 ml_auto">21,123,000 원</strong>
+                                </div>
+                                <div class="mList_sec _gap4">
+                                    <div>
+                                        <div>게이지 블록, 비교교정</div>
+                                        <div>Gage Blocks, by comparison</div>
+                                    </div>
+                                </div>   
+                            </a>
+                        </li>
+                        <li class="mList_item">
+                            <a href="./price_detail.html" class="mList_inner">
+                                <div class="mList_sec mList_top _gapX4 fw_w">
+                                    <strong class="fz_3">전자기장의 세기 및 안테나</strong>
+                                    <span class="fc_midGrey">[10235-1]</span>
+                                    <strong class="fc_blue fz_4 ml_auto">21,123,000 원</strong>
+                                </div>
+                                <div class="mList_sec _gap4">
+                                    <div>
+                                        <div>게이지 블록, 비교교정</div>
+                                        <div>Gage Blocks, by comparison</div>
+                                    </div>
+                                </div>   
+                            </a>
+                        </li>
+                        <li class="mList_item">
+                            <a href="./price_detail.html" class="mList_inner">
+                                <div class="mList_sec mList_top _gapX4 fw_w">
+                                    <strong class="fz_3">전자기장의 세기 및 안테나</strong>
+                                    <span class="fc_midGrey">[10235-1]</span>
+                                    <strong class="fc_blue fz_4 ml_auto">21,123,000 원</strong>
+                                </div>
+                                <div class="mList_sec _gap4">
+                                    <div>
+                                        <div>게이지 블록, 비교교정</div>
+                                        <div>Gage Blocks, by comparison</div>
+                                    </div>
+                                </div>   
+                            </a>
+                        </li>
+                        <li class="mList_item">
+                            <a href="./price_detail.html" class="mList_inner">
+                                <div class="mList_sec mList_top _gapX4 fw_w">
+                                    <strong class="fz_3">전자기장의 세기 및 안테나</strong>
+                                    <span class="fc_midGrey">[10235-1]</span>
+                                    <strong class="fc_blue fz_4 ml_auto">21,123,000 원</strong>
+                                </div>
+                                <div class="mList_sec _gap4">
+                                    <div>
+                                        <div>게이지 블록, 비교교정</div>
+                                        <div>Gage Blocks, by comparison</div>
+                                    </div>
+                                </div>   
+                            </a>
+                        </li>
+                    </ul> 
+                    <div class="paging_wrap mt20">
+                        <a href="" class="paging_btn paging_nav ty_first"><span class="blind">처음</span></a>
+                        <a href="" class="paging_btn paging_nav ty_prev"><span class="blind">이전</span></a>
+                        <ul class="paging_list">
+                            <li><span class="paging_btn current">1</span></li>
+                            <li><a href="" class="paging_btn">2</a></li>
+                            <li><a href="" class="paging_btn">3</a></li>
+                            <li><a href="" class="paging_btn">4</a></li>
+                            <li><a href="" class="paging_btn">5</a></li>
+                        </ul>
+                        <a href="" class="paging_btn paging_nav ty_next"><span class="blind">다음</span></a>
+                        <a href="" class="paging_btn paging_nav ty_last"><span class="blind">마지막</span></a>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <!--//container-->
+        <!-- sticky_bot -->
+        <div class="sticky_bot">
+            <button type="button" aria-label="상단으로 이동" onclick="window.scrollTo(0,0)" class="btn_gotop"></button>
+            <ul class="botNav">
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico1"></span>
+                        <span class="tit">전체조회</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico2"></span>
+                        <span class="tit">업체</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico_home"></span>
+                        <span class="tit">홈</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico3"></span>
+                        <span class="tit">일정</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <button type="button" class="botNav_btn btn_nav_toggle">
+                        <span class="ico_box ico4"></span>
+                        <span class="tit">메뉴</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!-- sticky_bot -->
+    </div>
+</body>
+</html>

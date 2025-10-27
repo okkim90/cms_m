@@ -2257,22 +2257,15 @@ body.scroll-locked {
         @include m-sizing;
         
        
-        opacity: 0;
-        visibility: hidden;
-        transition: all .2s  ease-in-out;
+        display: none;
         &.on {
-            opacity: 1;
-            visibility: visible;
-            .toast_inner {
-                bottom: 0;
-                transition: bottom .3s ease-in-out; 
-            }
+            display: flex;
         }
     }
     &_inner {
         position: absolute;
         left: 0;
-        bottom: -100%;
+        bottom: 0;
         width: 100%;
         max-height: calc(100dvh - 60px);
         background-color: #fff;
@@ -2303,11 +2296,11 @@ body.scroll-locked {
         //margin-top: 30px;
         //border-top: 1px solid $c_line;
         gap: 10px;
-        padding: 20px 16px 20px;
+        padding: 15px 16px 15px;
         box-shadow: 0 -6px 6px rgba(#000, .07); 
-        .f_btn {
-            flex: 1;
-        }
+        // .f_btn {
+        //     flex: 1;
+        // }
     }
     &_close {
         position: absolute;
@@ -2968,7 +2961,7 @@ body.scroll-locked {
         display: flex;
         align-items: center;
         justify-content: center;
-        letter-spacing: 0.2em;
+        gap: 4px;
         padding: 0 10px;
         box-sizing: border-box;
         min-width: 60px;

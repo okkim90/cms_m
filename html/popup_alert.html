@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Generator" content="KIC">
+    <meta name="Author" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Keywords" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Description" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <title>코리아인스트루먼트(주) 교정관리 시스템</title>
+    <script src="https://kit.fontawesome.com/8f18490998.js" crossorigin="anonymous" ></script>
+    <script src="../assets/js/main.js" defer></script>
+
+    <link rel="stylesheet" href="../assets/css/common.min.css">
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="skip-nav">
+        <a href="#container"></a>
+    </div>
+    <div id="wrap">
+        <!-- header -->
+        <header class="header">
+            <h1 class="header_tit">알림 팝업</h1>
+            <button type="button" class="btn_back" aria-label="뒤로가기"></button>
+        </header>
+        <!--// header -->
+        <!-- sidenav -->
+        <aside class="sidenav">
+            <div class="sidenav_top">
+                <div>
+                    <div class="user_name"><b>김영술</b> (okkim)</div>
+                    <div class="co_name">코리아인스트루먼트 서울본사 (IT 서비스개발실)</div>
+                </div>
+                <button type="button" class="btn_nav_close" aria-label="close navigation"></button>
+            </div>
+            <ul class="nav">
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu1"></i>전체 조회</a>
+                </li>
+                <li class="nav_item ">
+                    <a href="" class="btn_dep1 "><i class="ico_dep1 ty_menu2"></i>업체 조회</a>              
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu3"></i>견적 조회</a>          
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu4"></i>일정 조회</a>               
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu5"></i>교정 수수료</a>                
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu6"></i>예약번호</a>               
+                </li>
+            </ul>
+            <div class="sidenav_bot">
+                <button type="button" class="f_btn ty_s_mid _midGrey w_100">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </aside>
+        <!--// sidenav -->
+        <!--container-->
+        <main id="container" class="container">
+            <div id="contents" class="contents">
+               
+            </div>
+        </main>
+        <!--//container-->
+        <!-- sticky_bot -->
+        <div class="sticky_bot">
+            <button type="button" aria-label="상단으로 이동" onclick="window.scrollTo(0,0)" class="btn_gotop"></button>
+            <ul class="botNav">
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico1"></span>
+                        <span class="tit">전체조회</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico2"></span>
+                        <span class="tit">업체</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico_home"></span>
+                        <span class="tit">홈</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico3"></span>
+                        <span class="tit">일정</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <button type="button" class="botNav_btn btn_nav_toggle">
+                        <span class="ico_box ico4"></span>
+                        <span class="tit">메뉴</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!-- sticky_bot -->
+    </div>
+
+    <div class="layer_popup on">
+        <div class="layer_popup_inner">
+            <div class="layer_popup_cont ty_confirm">
+                <button type="button" class="close_popup" onclick="close_popup(this)">
+                    <span class="blind">팝업 닫기</span>
+                </button>
+                <div class="layer_popup_tit">
+                    <h2 class="tit">알림</h2>
+                </div>
+                <div class="layer_popup_msg fz_4 taC">
+                    접수번호가 예약되었습니다.
+                </div>
+                <div class="btn_area d_flex _gap10 ">        
+                    <button type="button" class="f_btn ty_mid _key flex1" onclick="close_popup(this)">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

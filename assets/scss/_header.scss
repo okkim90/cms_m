@@ -40,6 +40,12 @@
         background-position: center center;
         background-size: 12px;
     }
+    .btn_add_number {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
     .btn_mall {
         display: flex;
         align-items: center;

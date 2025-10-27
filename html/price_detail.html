@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="Generator" content="KIC">
+    <meta name="Author" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Keywords" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <meta name="Description" content="코리아인스트루먼트(주) 교정관리 시스템">
+    <title>코리아인스트루먼트(주) 교정관리 시스템</title>
+    <script src="https://kit.fontawesome.com/8f18490998.js" crossorigin="anonymous" ></script>
+    <script src="../assets/js/main.js" defer></script>
+
+    <link rel="stylesheet" href="../assets/css/common.min.css">
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="skip-nav">
+        <a href="#container"></a>
+    </div>
+    <div id="wrap">
+        <!-- header -->
+        <header class="header">
+            <h1 class="header_tit">교정 수수료 상세보기</h1>
+            <button type="button" class="btn_back" aria-label="뒤로가기"></button>
+        </header>
+        <!--// header -->
+        <!-- sidenav -->
+        <aside class="sidenav">
+            <div class="sidenav_top">
+                <div>
+                    <div class="user_name"><b>김영술</b> (okkim)</div>
+                    <div class="co_name">코리아인스트루먼트 서울본사 (IT 서비스개발실)</div>
+                </div>
+                <button type="button" class="btn_nav_close" aria-label="close navigation"></button>
+            </div>
+            <ul class="nav">
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu1"></i>전체 조회</a>
+                </li>
+                <li class="nav_item ">
+                    <a href="" class="btn_dep1 "><i class="ico_dep1 ty_menu2"></i>업체 조회</a>              
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu3"></i>견적 조회</a>          
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu4"></i>일정 조회</a>               
+                </li>
+                <li class="nav_item on">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu5"></i>교정 수수료</a>                
+                </li>
+                <li class="nav_item">
+                    <a href="" class="btn_dep1"><i class="ico_dep1 ty_menu6"></i>예약번호</a>               
+                </li>
+            </ul>
+            <div class="sidenav_bot">
+                <button type="button" class="f_btn ty_s_mid _midGrey w_100">로그아웃 <i class="fa-solid fa-right-from-bracket"></i></button>
+            </div>
+        </aside>
+        <!--// sidenav -->
+        <!--container-->
+        <main id="container" class="container">
+            <div id="contents" class="contents">
+                <section class="sec">
+                    <div class="sub_tit2">
+                        <h3 class="tit3">1. 기본 정보</h3>  
+                    </div>
+                    <table class="v_tbl">
+                        <colgroup>
+                            <col style="width: 100px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>교정분야</th>
+                                <td>선형치수</td>
+                            </tr>
+                            <tr>
+                                <th>분류코드</th>
+                                <td>10221</td>
+                            </tr>
+                            <tr>
+                                <th>표준서명</th>
+                                <td>게이지 블록, 비교교정</td>
+                            </tr>
+                            <tr>
+                                <th>표준서명(영문)</th>
+                                <td>Gage Blocks, by comparison</td>
+                            </tr>
+                            <tr>
+                                <th>구분</th>
+                                <td>0급 이하 100 ㎜ 이하</td>
+                            </tr>
+                            <tr>
+                                <th>조건</th>
+                                <td>0급 이하 100 ㎜ 이하</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section class="sec">
+                    <div class="sub_tit2">
+                        <h3 class="tit3">2. 수수료 계산</h3>  
+                    </div>
+                    <table class="v_tbl">
+                        <colgroup>
+                            <col style="width: 100px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>기본 수수료</th>
+                                <td class="taR">100,000 원</td>
+                            </tr>
+                            <tr>
+                                <th>실비</th>
+                                <td class="taR">
+                                    <div class="d_flex ai_c jc_fe _gap6">
+                                        <input type="number" class="f_input ty_mid2 w_80 taR" placeholder="숫자 입력">
+                                        <span class="shrink0">시간 * 34,600 원</span>
+                                    </div> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>조건</th>
+                                <td class="taR">
+                                    <div class="d_flex ai_c jc_fe _gap6">
+                                        <input type="number" class="f_input ty_mid2 w_120 taR">
+                                        <span class="shrink0">원</span>
+                                    </div> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>100mm</th>
+                                <td class="taR">
+                                    <div class="d_flex ai_c jc_fe _gap6">
+                                        <input type="number" class="f_input ty_mid2 w_120 taR">
+                                        <span class="shrink0">원</span>
+                                    </div> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>기본기능</th>
+                                <td class="taR">
+                                    <p>(1) 공기를 교정유체로 사용하는 것을 기준으로 함</p>
+                                    <p>(2) 기타 유체 사용시, 소모성 배관 사용시 실비 추가</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>신청내역</th>
+                                <td class="taR">
+                                    [코드분류: 20908-1-3] [기본수수료: 0원] [추가기능: ] [교정수수료: 34,600원
+                                </td>
+                            </tr>
+                            <tr class="_strong">
+                                <th>수수료 총합</th>
+                                <td class="taR">
+                                    <strong class="fc_key fz_4">100,000 원</strong>   
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <div class="mt40 d_flex _gap10 jc_c">
+                    <a href="./price.html" class="f_btn ty_mid w_80 _lightGrey">목록</a>
+                </div>
+            </div>
+        </main>
+        <!--//container-->
+        <!-- sticky_bot -->
+        <div class="sticky_bot">
+            <button type="button" aria-label="상단으로 이동" onclick="window.scrollTo(0,0)" class="btn_gotop"></button>
+            <ul class="botNav">
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico1"></span>
+                        <span class="tit">전체조회</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico2"></span>
+                        <span class="tit">업체</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico_home"></span>
+                        <span class="tit">홈</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <a href="" class="botNav_btn">
+                        <span class="ico_box ico3"></span>
+                        <span class="tit">일정</span>
+                    </a>
+                </li>
+                <li class="botNav_item">
+                    <button type="button" class="botNav_btn btn_nav_toggle">
+                        <span class="ico_box ico4"></span>
+                        <span class="tit">메뉴</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <!-- sticky_bot -->
+    </div>
+</body>
+</html>
