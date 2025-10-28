@@ -1335,6 +1335,64 @@
   color: #ccc;
 }
 
+.fc_lightGrey3 {
+  color: #efefef;
+}
+
+.bg_lightGrey3 {
+  background-color: #efefef;
+}
+
+.bd_lightGrey3 {
+  border-color: #efefef;
+}
+
+.f_btn._lightGrey3 {
+  transition: all 0.1s ease-in-out;
+  background-color: #efefef;
+  border-color: #efefef;
+  color: #fff;
+}
+.f_btn._lightGrey3_ol {
+  transition: all 0.1s ease-in-out;
+  background-color: #fff;
+  border-color: #efefef;
+  color: #efefef;
+}
+.f_btn._lightGrey3_ol.on {
+  background-color: #efefef;
+  color: #fff;
+}
+.f_btn._lightGrey3_op {
+  transition: all 0.1s ease-in-out;
+  background-color: rgba(239, 239, 239, 0.15);
+  border-color: #efefef;
+  color: #efefef;
+}
+
+.btn_ico._lightGrey3 {
+  transition: all 0.1s ease-in-out;
+  background-color: #efefef;
+  border-color: #efefef;
+  color: #fff;
+}
+
+.f_tag._lightGrey3 {
+  background-color: #efefef;
+  border-color: #efefef;
+  color: #fff;
+}
+.f_tag._lightGrey3_ol {
+  background-color: transparent;
+  border-color: #efefef;
+  color: #efefef;
+}
+.f_tag._lightGrey3_op {
+  background-color: white;
+  border-color: #efefef;
+  color: #efefef;
+}
+
 .fc_midGrey {
   color: #777;
 }
@@ -10265,8 +10323,8 @@ tr:last-child .status_box_date {
 }
 
 .f_chk.ty_big {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
 .f_toggle {
@@ -11316,7 +11374,6 @@ tr:last-child .status_box_date {
 .tabs_item {
   border-right: 1px solid #DDDDDD;
   border-top: 1px solid #DDDDDD;
-  flex: 0.1;
 }
 .tabs_item:hover {
   background-color: rgba(0, 0, 0, 0.04);
