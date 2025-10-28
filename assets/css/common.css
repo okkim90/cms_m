@@ -9983,14 +9983,14 @@ tr:last-child .status_box_date {
 }
 
 .botNav {
-  height: 60px;
+  height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #fff;
   border-bottom: none;
   box-sizing: border-box;
-  padding-bottom: 6px;
+  padding-bottom: 12px;
 }
 .botNav_item {
   flex: 1;
