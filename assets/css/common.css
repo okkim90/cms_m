@@ -11971,76 +11971,53 @@ tr:last-child .status_box_date {
   font-weight: bold;
 }
 
-.loading {
-  visibility: hidden;
-  opacity: 0;
+.page-loader {
   position: fixed;
-  z-index: -9999;
-  background-color: rgba(255, 255, 255, 0.6);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: saturate(120%) blur(2px);
+          backdrop-filter: saturate(120%) blur(2px);
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.page-loader--hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.page-loader .loader {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 6px solid #FFF;
+  border-right: 6px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.page-loader .loader::after {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
-  transition: all 0.2s 0.4s ease-in-out;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border-bottom: 6px solid #7d9eff;
+  border-left: 6px solid transparent;
 }
-.loading.on {
-  visibility: visible;
-  opacity: 1;
-  z-index: 10001;
-  transition: all 0.2s ease-in-out;
-}
-.loading_svg {
-  width: 50vw;
-}
-.loading_inner {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-.loading .cls-2, .loading .cls-3, .loading .cls-4, .loading .cls-5 {
-  fill: #ff7c24;
-}
-.loading .cls-4 {
-  opacity: 0.8;
-}
-.loading_bar {
-  fill: #ff7c24;
-  animation: 0.5s loading_opacity infinite alternate;
-}
-.loading_bar.bar12 {
-  animation-delay: 0.1s;
-}
-.loading_bar.bar2 {
-  animation-delay: 0.2s;
-}
-.loading_bar.bar3 {
-  animation-delay: 0.3s;
-}
-.loading_bar.bar4 {
-  animation-delay: 0.4s;
-}
-.loading_plus {
-  opacity: 0.8;
-  transform-origin: 92.5% 16%;
-  animation: 2s loading_rotate infinite linear;
-}
-
-@keyframes loading_rotate {
-  from {
-    transform: rotate(0);
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
-@keyframes loading_opacity {
-  to {
-    opacity: 0.2;
-  }
-}
+
 .mList_item {
   font-size: 12px;
 }
