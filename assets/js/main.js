@@ -513,6 +513,10 @@ window.addEventListener('beforeunload', () => {
   loader.classList.remove('page-loader--hide');
 });
 
+window.addEventListener('pageshow', (e) => {
+    if (e.persisted) loader.classList.add('page-loader--hide');
+}); 
+
 document.addEventListener('click', (e) => {
   const a = e.target.closest('a');
   if (!a) return;
